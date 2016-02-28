@@ -7,5 +7,6 @@
     RequestedTheme="Dark">
     <Application.Resources>
         <x:String x:Key="AppName">Catrobat</x:String>
+        <SolidColorBrush x:Key="CatrobatBackgroundColor" Color="#FF05222A"/>
     </Application.Resources>
 </windows:PrismUnityApplication>

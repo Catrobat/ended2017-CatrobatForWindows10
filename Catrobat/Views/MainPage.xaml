@@ -8,11 +8,12 @@
       xmlns:converter="using:Catrobat.Converter"
       prism:ViewModelLocator.AutoWireViewModel="true"
       mc:Ignorable="d">
+    
     <Page.Resources>
         <converter:BooleanToVisibilityConverter x:Name="BooleanToVisibilityConverter"/>
     </Page.Resources>
 
-    <Grid Background="#FF05222A">
+    <Grid Background="{StaticResource CatrobatBackgroundColor}">
         <Pivot>
             <Pivot.Items>
                 <PivotItem  Header="Programs">
@@ -37,7 +38,19 @@
                 </PivotItem>
 
                 <PivotItem Header="Explore">
-                    <WebView x:Name="WebViewExplore" Source="https://share.catrob.at/pocketcode/" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ProgressBar Grid.Row="0" 
+                                     IsIndeterminate="{Binding IsDownloading}" 
+                                     Background="Transparent"
+                                     Foreground="#FFF87917"/>
+                        <WebView Grid.Row="1" 
+                                 x:Name="WebViewExplore" 
+                                 Source="https://share.catrob.at/pocketcode/" />
+                    </Grid>
                 </PivotItem>
                 
                 <PivotItem  Header="Help" >

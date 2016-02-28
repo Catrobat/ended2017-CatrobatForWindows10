@@ -26,7 +26,7 @@ namespace Catrobat.ViewModels
 
         public ObservableCollection<CatrobatProgram> CatrobatPrograms { get; set; }
 
-        public bool IsLoading
+        public bool IsDownloading
         {
             get { return _isLoading; }
             private set { base.SetProperty(ref _isLoading, value); }
@@ -43,7 +43,7 @@ namespace Catrobat.ViewModels
 
         private void Downloading(DownloadStatus t)
         {
-            IsLoading = t == DownloadStatus.Started ? true : false;
+            IsDownloading = t == DownloadStatus.Started ? true : false;
             if (t == DownloadStatus.Finished)
             {
                 LoadCatrobatPrograms();
@@ -52,43 +52,24 @@ namespace Catrobat.ViewModels
 
         private void LoadCatrobatPrograms()
         {
-            CatrobatPrograms.Clear();
+            string destPath = string.Format("{0}\\programs", Windows.Storage.ApplicationData.Current.LocalFolder.Path);
+            if (!Directory.Exists(destPath)) Directory.CreateDirectory(destPath);
+
             foreach (string f in Directory.GetFiles(Windows.Storage.ApplicationData.Current.LocalFolder.Path))
             {
-                CatrobatProgram catProg = new CatrobatProgram();
-                using (ZipArchive archive = ZipFile.Open(f, ZipArchiveMode.Read))
+                if (f.EndsWith(".zip"))
                 {
-                    foreach (ZipArchiveEntry entry in archive.Entries)
+                    using (ZipArchive archive = ZipFile.Open(f, ZipArchiveMode.Read))
                     {
-                        if (entry.FullName == "automatic_screenshot.png" ||
-                            entry.FullName == "manual_screenshot.png")
-                        {
-                            using (MemoryStream m = new MemoryStream())
-                            {
-                                var bitmap = new BitmapImage();
-                                entry.Open().CopyTo(m);
-                                m.Position = 0;
-                                bitmap.SetSource(m.AsRandomAccessStream());
-                                catProg.Thumbnail = bitmap;
-                            }
-                        }
-                        else if (entry.FullName == "code.xml")
-                        {
-                            Stream s = entry.Open();
-                        }
-                        else if (entry.FullName.StartsWith("images", StringComparison.OrdinalIgnoreCase) &&
-                            entry.FullName.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
-                        {
-                            Stream s = entry.Open();
-                        }
-                        else if (entry.FullName.StartsWith("sounds", StringComparison.OrdinalIgnoreCase) &&
-                            entry.FullName.EndsWith(".m4a", StringComparison.OrdinalIgnoreCase))
-                        {
-                            Stream s = entry.Open();
-                        }
+                        archive.ExtractToDirectory(string.Format("{0}\\{1}", destPath, Guid.NewGuid()));
                     }
+                    File.Delete(f);
                 }
-                CatrobatPrograms.Add(catProg);
+            }
+            CatrobatPrograms.Clear();
+            foreach (string storagePath in Directory.GetDirectories(destPath))
+            {
+                CatrobatPrograms.Add(new CatrobatProgram(storagePath));
             }
         }
 
