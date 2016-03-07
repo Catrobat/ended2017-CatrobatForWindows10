@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <!-- Main element -->
+  <xs:element name="program">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="header"/>
+        <xs:element name="objectList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="object" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="objectListOfList"></xs:element>
+              <xs:element name="objectVariableList"></xs:element>
+              <xs:element name="programListOfLists"></xs:element>
+              <xs:element name="programVariableList"></xs:element>
+              <xs:element name="userBrickVariableList"></xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="settings"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- Header definition -->
+  <xs:element name="header">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="applicationBuildName" type="xs:string"/>
+        <xs:element name="applicationBuildNumber" type="xs:int"/>
+        <xs:element name="applicationName" type="xs:string"/>
+        <xs:element name="applicationVersion" type="xs:string"/>
+        <xs:element name="catrobatLanguageVersion" type="xs:string"/>
+        <xs:element name="dateTimeUpload" type="xs:string"/>
+        <xs:element name="description" type="xs:string"/>
+        <xs:element name="deviceName" type="xs:string"/>
+        <xs:element name="landscapeMode" type="xs:string"/>
+        <xs:element name="mediaLicense" type="xs:string"/>
+        <xs:element name="platform" type="xs:string"/>
+        <xs:element name="platformVersion" type="xs:string"/>
+        <xs:element name="programLicense" type="xs:string"/>
+        <xs:element name="programName" type="xs:string"/>
+        <xs:element name="remixOf" type="xs:string"/>
+        <xs:element name="screenHeight" type="xs:int"/>
+        <xs:element name="screenMode" type="xs:string"/>
+        <xs:element name="screenWidth" type="xs:int"/>
+        <xs:element name="tags" type="xs:string"/>
+        <xs:element name="url" type="xs:string"/>
+        <xs:element name="userHandle" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Object definition -->
+  <xs:element name="object">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="lookList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="look"  maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="soundList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="sound"  maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="scriptList"/>
+        <xs:element name="userBricks"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Look definition -->
+  <xs:element name="look">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fileName" type="xs:string"></xs:element>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string"></xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Sound definition -->
+  <xs:element name="sound">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fileName" type="xs:string"></xs:element>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string"></xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+
+</xs:schema>
