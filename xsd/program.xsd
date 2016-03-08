@@ -28,7 +28,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  
+
   <!-- Header definition -->
   <xs:element name="header">
     <xs:complexType>
@@ -76,7 +76,14 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="scriptList"/>
+        <xs:element name="scriptList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="script"  maxOccurs="unbounded"/>
+              <!--<xs:element name="script" type="script" maxOccurs="unbounded"/>-->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="userBricks"/>
       </xs:sequence>
     </xs:complexType>
@@ -101,6 +108,32 @@
       <xs:attribute name="name" type="xs:string"></xs:attribute>
     </xs:complexType>
   </xs:element>
-  
+
+  <!-- Script definition -->
+  <xs:element name="script" type="script"/>
+  <xs:complexType name="script" />
+
+  <xs:element name="StartScript">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="script">
+          <xs:all>
+            <xs:element name="brickList">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element ref="brick"  maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="isUserScript" type="xs:boolean"></xs:element>
+          </xs:all>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Brick definition -->
+  <xs:element name="brick"/>
+
 
 </xs:schema>
