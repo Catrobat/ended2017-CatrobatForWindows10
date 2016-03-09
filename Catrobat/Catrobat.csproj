@@ -135,6 +135,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Common\CatrobatLanguage_0.98\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

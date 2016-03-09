@@ -56,6 +56,17 @@
     </xs:sequence>
   </xs:complexType>
 
+  <!-- Formular definition -->
+  <xs:complexType name="formula">
+    <xs:sequence>
+      <xs:element name="leftChild" type="formula"/>
+      <xs:element name="rightChild" type="formula"/>
+      <xs:element name="type" type="xs:string"/>
+      <xs:element name="value" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="category" type="xs:string"/>
+  </xs:complexType>
+  
   <!-- Object definition -->
   <xs:complexType name="object">
     <xs:sequence>
@@ -132,4 +143,21 @@
     </xs:complexContent>
   </xs:complexType>
 
+  <xs:complexType name="SetXBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:all>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="isUserScript" type="xs:boolean"></xs:element>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
 </xs:schema>
