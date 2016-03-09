@@ -5,11 +5,11 @@
   <xs:element name="program">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="header"/>
+        <xs:element name="header" type="header"/>
         <xs:element name="objectList">
           <xs:complexType>
             <xs:sequence>
-              <xs:element ref="object" maxOccurs="unbounded"/>
+              <xs:element name="object" type="object" maxOccurs="unbounded"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -30,110 +30,106 @@
   </xs:element>
 
   <!-- Header definition -->
-  <xs:element name="header">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="applicationBuildName" type="xs:string"/>
-        <xs:element name="applicationBuildNumber" type="xs:int"/>
-        <xs:element name="applicationName" type="xs:string"/>
-        <xs:element name="applicationVersion" type="xs:string"/>
-        <xs:element name="catrobatLanguageVersion" type="xs:string"/>
-        <xs:element name="dateTimeUpload" type="xs:string"/>
-        <xs:element name="description" type="xs:string"/>
-        <xs:element name="deviceName" type="xs:string"/>
-        <xs:element name="landscapeMode" type="xs:string"/>
-        <xs:element name="mediaLicense" type="xs:string"/>
-        <xs:element name="platform" type="xs:string"/>
-        <xs:element name="platformVersion" type="xs:string"/>
-        <xs:element name="programLicense" type="xs:string"/>
-        <xs:element name="programName" type="xs:string"/>
-        <xs:element name="remixOf" type="xs:string"/>
-        <xs:element name="screenHeight" type="xs:int"/>
-        <xs:element name="screenMode" type="xs:string"/>
-        <xs:element name="screenWidth" type="xs:int"/>
-        <xs:element name="tags" type="xs:string"/>
-        <xs:element name="url" type="xs:string"/>
-        <xs:element name="userHandle" type="xs:string"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+  <xs:complexType name="header">
+    <xs:sequence>
+      <xs:element name="applicationBuildName" type="xs:string"/>
+      <xs:element name="applicationBuildNumber" type="xs:int"/>
+      <xs:element name="applicationName" type="xs:string"/>
+      <xs:element name="applicationVersion" type="xs:string"/>
+      <xs:element name="catrobatLanguageVersion" type="xs:string"/>
+      <xs:element name="dateTimeUpload" type="xs:string"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="deviceName" type="xs:string"/>
+      <xs:element name="landscapeMode" type="xs:string"/>
+      <xs:element name="mediaLicense" type="xs:string"/>
+      <xs:element name="platform" type="xs:string"/>
+      <xs:element name="platformVersion" type="xs:string"/>
+      <xs:element name="programLicense" type="xs:string"/>
+      <xs:element name="programName" type="xs:string"/>
+      <xs:element name="remixOf" type="xs:string"/>
+      <xs:element name="screenHeight" type="xs:int"/>
+      <xs:element name="screenMode" type="xs:string"/>
+      <xs:element name="screenWidth" type="xs:int"/>
+      <xs:element name="tags" type="xs:string"/>
+      <xs:element name="url" type="xs:string"/>
+      <xs:element name="userHandle" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
 
   <!-- Object definition -->
-  <xs:element name="object">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="lookList">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element ref="look"  maxOccurs="unbounded"/>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="soundList">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element ref="sound"  maxOccurs="unbounded"/>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="scriptList">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element ref="script"  maxOccurs="unbounded"/>
-              <!--<xs:element name="script" type="script" maxOccurs="unbounded"/>-->
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="userBricks"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+  <xs:complexType name="object">
+    <xs:sequence>
+      <xs:element name="lookList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="look" type="look" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="soundList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sound" type="sound" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="scriptList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="script" type="script" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="userBricks"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
 
   <!-- Look definition -->
-  <xs:element name="look">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="fileName" type="xs:string"></xs:element>
-      </xs:sequence>
-      <xs:attribute name="name" type="xs:string"></xs:attribute>
-    </xs:complexType>
-  </xs:element>
+  <xs:complexType name="look">
+    <xs:sequence>
+      <xs:element name="fileName" type="xs:string"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"></xs:attribute>
+  </xs:complexType>
 
   <!-- Sound definition -->
-  <xs:element name="sound">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="fileName" type="xs:string"></xs:element>
-      </xs:sequence>
-      <xs:attribute name="name" type="xs:string"></xs:attribute>
-    </xs:complexType>
-  </xs:element>
+  <xs:complexType name="sound">
+    <xs:sequence>
+      <xs:element name="fileName" type="xs:string"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"></xs:attribute>
+  </xs:complexType>
 
   <!-- Script definition -->
-  <xs:element name="script" type="script"/>
   <xs:complexType name="script" />
 
-  <xs:element name="StartScript">
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="script">
-          <xs:all>
-            <xs:element name="brickList">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element ref="brick"  maxOccurs="unbounded"/>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="isUserScript" type="xs:boolean"></xs:element>
-          </xs:all>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
+  <xs:complexType name="StartScript">
+    <xs:complexContent>
+      <xs:extension base="script">
+        <xs:all>
+          <xs:element name="brickList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="brick" type="brick" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="isUserScript" type="xs:boolean"></xs:element>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 
   <!-- Brick definition -->
-  <xs:element name="brick"/>
+  <xs:complexType name="brick" />
 
+  <xs:complexType name="ForeverBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:all/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 
 </xs:schema>
