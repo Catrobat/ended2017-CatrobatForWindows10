@@ -98,6 +98,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\CatrobatLanguage\Fake.cs" />
+    <Compile Include="Common\CatrobatLanguage\program_098.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Messages\DownloadingMessage.cs" />
     <Compile Include="Models\CatrobatProgram.cs" />
@@ -135,7 +137,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\CatrobatLanguage_0.98\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

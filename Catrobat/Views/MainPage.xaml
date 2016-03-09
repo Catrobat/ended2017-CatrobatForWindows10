@@ -25,7 +25,7 @@
                             <DataTemplate >
                                 <StackPanel>
                                     <Image Source="{Binding Thumbnail}" Height="200"/>
-                                    <TextBlock Text="{Binding Name}"/>
+                                    <TextBlock Text="{Binding Program.header.programName}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
