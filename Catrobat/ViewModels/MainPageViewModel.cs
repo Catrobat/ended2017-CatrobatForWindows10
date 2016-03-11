@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Controls;
+using Prism.Windows.Navigation;
+using Prism.Commands;
 
 namespace Catrobat.ViewModels
 {
@@ -21,16 +23,12 @@ namespace Catrobat.ViewModels
     {
         #region Private fields
         private bool _isLoading = false;
-        private CatrobatProgram _selectedCatrobatProgram;
+        private INavigationService _navService;
 
         #endregion
 
+        #region Public properties
         public EventAggregator EventAggregator { get; private set; }
-
-        /// <summary>
-        /// Is set from code behind, used for player.
-        /// </summary>
-        public Page MainView { get; internal set; }
 
         public ObservableCollection<CatrobatProgram> CatrobatPrograms { get; set; }
 
@@ -40,36 +38,25 @@ namespace Catrobat.ViewModels
             private set { base.SetProperty(ref _isLoading, value); }
         }
 
-        public CatrobatProgram SelectedCatrobatProgram
+        #endregion
+
+        #region Commands
+        public DelegateCommand<CatrobatProgram> ProgramSelectCommand { get; set; }
+        #endregion
+
+        public MainPageViewModel(INavigationService navService, EventAggregator eventAggregator)
         {
-            get { return _selectedCatrobatProgram; }
-            set
-            {
-                _selectedCatrobatProgram = value;
-                try
-                {
-                    Catrobat_Player.NativeComponent.NativeWrapper.SetProject(SelectedCatrobatProgram.Program);
-                    Catrobat_PlayerAdapter playerObject = new Catrobat_PlayerAdapter();
-                    playerObject.InitPlayer(MainView, "");
-                }
-                catch (Exception e)
-                {
-
-                }
-
-            }
-        }
-
-
-        public MainPageViewModel(EventAggregator eventAggregator)
-        {
+            _navService = navService;
             EventAggregator = eventAggregator;
             CatrobatPrograms = new ObservableCollection<CatrobatProgram>();
             EventAggregator.GetEvent<DownloadingMessage>().Subscribe((t) => { Downloading(t); });
 
+            ProgramSelectCommand = new DelegateCommand<CatrobatProgram>((p) =>
+            {
+                navService.Navigate(CatrobatPage.Program.ToString(), p /* Just for testing will not work in reality */);
+            });
+
             LoadCatrobatPrograms();
-
-
         }
 
         private void Downloading(DownloadStatus t)
@@ -81,6 +68,9 @@ namespace Catrobat.ViewModels
             }
         }
 
+        /// <summary>
+        /// TODO: Move this code to a serice
+        /// </summary>
         private void LoadCatrobatPrograms()
         {
             string destPath = string.Format("{0}\\programs", Windows.Storage.ApplicationData.Current.LocalFolder.Path);

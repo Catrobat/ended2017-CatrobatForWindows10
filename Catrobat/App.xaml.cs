@@ -5,7 +5,7 @@ using Prism.Events;
 
 namespace Catrobat
 {
-    public enum CatrobatPage { Main }
+    public enum CatrobatPage { Main, Program, Player }
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>

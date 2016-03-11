@@ -1,0 +1,28 @@
+﻿<Page x:Class="Catrobat.Views.ProgramPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:Catrobat.Views"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:prism="using:Prism.Windows.Mvvm"
+      prism:ViewModelLocator.AutoWireViewModel="true"
+      mc:Ignorable="d">
+
+    <Grid Background="{StaticResource CatrobatBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <CommandBar Grid.Row="0" 
+                    VerticalAlignment="Top" 
+                    HorizontalContentAlignment="Stretch">
+            <AppBarButton Content="Play" 
+                          Icon="Play"
+                          Command="{Binding PlayCommand}"/>
+        </CommandBar>
+
+        <TextBlock Grid.Row="1">
+            TODO: Insert same edit functionality things as in the Android app.
+        </TextBlock>
+    </Grid>
+</Page>
