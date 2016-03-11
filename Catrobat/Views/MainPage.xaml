@@ -7,6 +7,7 @@
       xmlns:prism="using:Prism.Windows.Mvvm"
       xmlns:converter="using:Catrobat.Converter"
       prism:ViewModelLocator.AutoWireViewModel="true"
+      x:Name="MainView"
       mc:Ignorable="d">
     
     <Page.Resources>
@@ -14,18 +15,22 @@
     </Page.Resources>
 
     <Grid Background="{StaticResource CatrobatBackgroundColor}">
+        <SwapChainPanel x:Name="SwapChainPanel"
+                    Margin="0,0,0,60"/>
+        
         <Pivot>
             <Pivot.Items>
                 <PivotItem  Header="Programs">
                     <ListView TabIndex="1"
                               ItemsSource="{Binding CatrobatPrograms}"
-                              SelectionMode="None"
+                              SelectedItem="{Binding SelectedCatrobatProgram, Mode=TwoWay}"
+                              SelectionMode="Single"
                               IsSwipeEnabled="false" >
                         <ListView.ItemTemplate>
                             <DataTemplate >
                                 <StackPanel>
                                     <Image Source="{Binding Thumbnail}" Height="200"/>
-                                    <TextBlock Text="{Binding Name}"/>
+                                    <TextBlock Text="{Binding Program.header.programName}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

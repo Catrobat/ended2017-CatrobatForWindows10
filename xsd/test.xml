@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<program xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <header>
+    <applicationBuildName></applicationBuildName>
+    <applicationBuildNumber>0</applicationBuildNumber>
+    <applicationName>Pocket Code</applicationName>
+    <applicationVersion>0.9.21</applicationVersion>
+    <catrobatLanguageVersion>0.98</catrobatLanguageVersion>
+    <dateTimeUpload></dateTimeUpload>
+    <description></description>
+    <deviceName>D5503</deviceName>
+    <landscapeMode>false</landscapeMode>
+    <mediaLicense></mediaLicense>
+    <platform>Android</platform>
+    <platformVersion>22.0</platformVersion>
+    <programLicense></programLicense>
+    <programName>test zt</programName>
+    <remixOf></remixOf>
+    <screenHeight>1184</screenHeight>
+    <screenMode>STRETCH</screenMode>
+    <screenWidth>720</screenWidth>
+    <tags></tags>
+    <url></url>
+    <userHandle></userHandle>
+  </header>
+  <objectList>
+    <object name="Hintergrund">
+      <lookList>
+        <look name="DSC_0197">
+          <fileName>8af3bb2abb91379a68f67d79235d482d_DSC_0197.JPG</fileName>
+        </look>
+      </lookList>
+      <soundList/>
+      <scriptList>
+        <script xsi:type="StartScript">
+          <brickList>
+		    <brick xsi:type="ForeverBrick"/>
+            <brick type="SetLookBrick">
+              <look reference="../../../../../lookList/look"/>
+            </brick>
+            <brick xsi:type="SetXBrick">
+			  <formulaList>
+                <formula category="STEPS">
+                  <leftChild>
+                    <type>SENSOR</type>
+                    <value>OBJECT_X</value>
+                  </leftChild>
+                  <rightChild>
+                    <type>SENSOR</type>
+                    <value>OBJECT_SIZE</value>
+                  </rightChild>
+                  <type>OPERATOR</type>
+                  <value>LOGICAL_AND</value>
+                </formula>
+              </formulaList>
+            </brick>
+            <brick type="NoteBrick">
+              <formulaList>
+                <formula category="NOTE">
+                  <type>STRING</type>
+                  <value>Kommentar hier hinzufügen…</value>
+                </formula>
+              </formulaList>
+            </brick>
+          </brickList>
+          <isUserScript>false</isUserScript>
+        </script>
+      </scriptList>
+      <userBricks/>
+    </object>
+  </objectList>
+  <data>
+    <objectListOfList>
+      <entry>
+        <object reference="../../../../objectList/object"/>
+        <list/>
+      </entry>
+    </objectListOfList>
+    <objectVariableList>
+      <entry>
+        <object reference="../../../../objectList/object"/>
+        <list/>
+      </entry>
+    </objectVariableList>
+    <programListOfLists/>
+    <programVariableList/>
+    <userBrickVariableList/>
+  </data>
+  <settings/>
+</program>
