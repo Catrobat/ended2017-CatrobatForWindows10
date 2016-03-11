@@ -234,3 +234,6 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# C## Player 
+Catrobat.Player/Catrobat.Player.WindowsPhone/Test/
