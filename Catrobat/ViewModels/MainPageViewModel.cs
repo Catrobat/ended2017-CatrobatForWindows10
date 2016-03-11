@@ -23,7 +23,6 @@ namespace Catrobat.ViewModels
     {
         #region Private fields
         private bool _isLoading = false;
-        private CatrobatProgram _selectedCatrobatProgram;
         private INavigationService _navService;
 
         #endregion
@@ -39,18 +38,11 @@ namespace Catrobat.ViewModels
             private set { base.SetProperty(ref _isLoading, value); }
         }
 
-        public CatrobatProgram SelectedCatrobatProgram
-        {
-            get { return _selectedCatrobatProgram; }
-            set
-            {
-                _selectedCatrobatProgram = value;
-
-            }
-        }
-
         #endregion
-        public DelegateCommand ProgramClickedCommand { get; set; }
+
+        #region Commands
+        public DelegateCommand<CatrobatProgram> ProgramSelectCommand { get; set; }
+        #endregion
 
         public MainPageViewModel(INavigationService navService, EventAggregator eventAggregator)
         {
@@ -59,8 +51,9 @@ namespace Catrobat.ViewModels
             CatrobatPrograms = new ObservableCollection<CatrobatProgram>();
             EventAggregator.GetEvent<DownloadingMessage>().Subscribe((t) => { Downloading(t); });
 
-            ProgramClickedCommand = new DelegateCommand(() => {
-                int a = 1;
+            ProgramSelectCommand = new DelegateCommand<CatrobatProgram>((p) =>
+            {
+                navService.Navigate(CatrobatPage.Program.ToString(), p /* Just for testing will not work in reality */);
             });
 
             LoadCatrobatPrograms();
@@ -75,6 +68,9 @@ namespace Catrobat.ViewModels
             }
         }
 
+        /// <summary>
+        /// TODO: Move this code to a serice
+        /// </summary>
         private void LoadCatrobatPrograms()
         {
             string destPath = string.Format("{0}\\programs", Windows.Storage.ApplicationData.Current.LocalFolder.Path);

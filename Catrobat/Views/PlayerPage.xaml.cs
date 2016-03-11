@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using Catrobat.Models;
+using Catrobat_Player;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -25,10 +15,16 @@ namespace Catrobat.Views
         public PlayerPage()
         {
             this.InitializeComponent();
-
-            //Catrobat_Player.NativeComponent.NativeWrapper.SetProject(SelectedCatrobatProgram.Program);
-            //Catrobat_PlayerAdapter playerObject = new Catrobat_PlayerAdapter();
-            //playerObject.InitPlayer(MainView, "");
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            var p = e.Parameter as CatrobatProgram;
+            Catrobat_Player.NativeComponent.NativeWrapper.SetProject(p.Program);
+            Catrobat_PlayerAdapter playerObject = new Catrobat_PlayerAdapter();
+            playerObject.InitPlayer(this, p.Program.header.ApplicationName);
+        }
+
     }
 }

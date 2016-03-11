@@ -21,8 +21,6 @@ namespace Catrobat.Models
         #endregion
 
         #region Public properties
-        public string Name { get; set; }
-
         public BitmapImage Thumbnail
         {
             get
