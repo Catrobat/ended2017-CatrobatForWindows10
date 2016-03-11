@@ -19,7 +19,6 @@ namespace Catrobat.Views
         {
             this.InitializeComponent();
             _eventAggregator = (DataContext as MainPageViewModel).EventAggregator;
-            (DataContext as MainPageViewModel).MainView = this.MainView;
             WebViewExplore.NavigationStarting += NavigationStarted;
         }
 

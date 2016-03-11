@@ -27,11 +27,6 @@ namespace Catrobat.ViewModels
 
         public EventAggregator EventAggregator { get; private set; }
 
-        /// <summary>
-        /// Is set from code behind, used for player.
-        /// </summary>
-        public Page MainView { get; internal set; }
-
         public ObservableCollection<CatrobatProgram> CatrobatPrograms { get; set; }
 
         public bool IsDownloading
@@ -46,16 +41,6 @@ namespace Catrobat.ViewModels
             set
             {
                 _selectedCatrobatProgram = value;
-                try
-                {
-                    Catrobat_Player.NativeComponent.NativeWrapper.SetProject(SelectedCatrobatProgram.Program);
-                    Catrobat_PlayerAdapter playerObject = new Catrobat_PlayerAdapter();
-                    playerObject.InitPlayer(MainView, "");
-                }
-                catch (Exception e)
-                {
-
-                }
 
             }
         }

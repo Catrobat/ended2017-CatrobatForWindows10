@@ -7,7 +7,6 @@
       xmlns:prism="using:Prism.Windows.Mvvm"
       xmlns:converter="using:Catrobat.Converter"
       prism:ViewModelLocator.AutoWireViewModel="true"
-      x:Name="MainView"
       mc:Ignorable="d">
     
     <Page.Resources>
