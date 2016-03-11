@@ -5,7 +5,7 @@ using Prism.Events;
 
 namespace Catrobat
 {
-    public enum CatrobatPage { Main }
+    public enum CatrobatPage { Main, Player }
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
@@ -30,6 +30,7 @@ namespace Catrobat
         {
             base.ConfigureContainer();
             RegisterTypeIfMissing(typeof(EventAggregator), typeof(EventAggregator), true);
+            
 
         }
 

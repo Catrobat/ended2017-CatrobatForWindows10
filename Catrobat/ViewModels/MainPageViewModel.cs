@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Controls;
+using Prism.Windows.Navigation;
+using Prism.Commands;
 
 namespace Catrobat.ViewModels
 {
@@ -22,9 +24,11 @@ namespace Catrobat.ViewModels
         #region Private fields
         private bool _isLoading = false;
         private CatrobatProgram _selectedCatrobatProgram;
+        private INavigationService _navService;
 
         #endregion
 
+        #region Public properties
         public EventAggregator EventAggregator { get; private set; }
 
         public ObservableCollection<CatrobatProgram> CatrobatPrograms { get; set; }
@@ -45,16 +49,21 @@ namespace Catrobat.ViewModels
             }
         }
 
+        #endregion
+        public DelegateCommand ProgramClickedCommand { get; set; }
 
-        public MainPageViewModel(EventAggregator eventAggregator)
+        public MainPageViewModel(INavigationService navService, EventAggregator eventAggregator)
         {
+            _navService = navService;
             EventAggregator = eventAggregator;
             CatrobatPrograms = new ObservableCollection<CatrobatProgram>();
             EventAggregator.GetEvent<DownloadingMessage>().Subscribe((t) => { Downloading(t); });
 
+            ProgramClickedCommand = new DelegateCommand(() => {
+                int a = 1;
+            });
+
             LoadCatrobatPrograms();
-
-
         }
 
         private void Downloading(DownloadStatus t)

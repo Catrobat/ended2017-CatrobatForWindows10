@@ -6,9 +6,10 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:prism="using:Prism.Windows.Mvvm"
       xmlns:converter="using:Catrobat.Converter"
+      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
       prism:ViewModelLocator.AutoWireViewModel="true"
       mc:Ignorable="d">
-    
+
     <Page.Resources>
         <converter:BooleanToVisibilityConverter x:Name="BooleanToVisibilityConverter"/>
     </Page.Resources>
@@ -16,7 +17,7 @@
     <Grid Background="{StaticResource CatrobatBackgroundColor}">
         <SwapChainPanel x:Name="SwapChainPanel"
                     Margin="0,0,0,60"/>
-        
+
         <Pivot>
             <Pivot.Items>
                 <PivotItem  Header="Programs">
@@ -25,6 +26,11 @@
                               SelectedItem="{Binding SelectedCatrobatProgram, Mode=TwoWay}"
                               SelectionMode="Single"
                               IsSwipeEnabled="false" >
+
+                        <Core:EventTriggerBehavior EventName="ItemClick">
+                            <Core:InvokeCommandAction Command="{Binding ProgramClickedCommand}" />
+                        </Core:EventTriggerBehavior>
+                        
                         <ListView.ItemTemplate>
                             <DataTemplate >
                                 <StackPanel>
@@ -56,7 +62,7 @@
                                  Source="https://share.catrob.at/pocketcode/" />
                     </Grid>
                 </PivotItem>
-                
+
                 <PivotItem  Header="Help" >
                     <WebView Source="https://share.catrob.at/pocketcode/help" />
                 </PivotItem>
