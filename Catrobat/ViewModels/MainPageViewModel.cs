@@ -1,5 +1,6 @@
 ﻿using Catrobat.Messages;
 using Catrobat.Models;
+using Catrobat_Player;
 using Prism.Events;
 using Prism.Windows.Mvvm;
 using System;
@@ -12,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Controls;
 
 namespace Catrobat.ViewModels
 {
@@ -19,10 +21,16 @@ namespace Catrobat.ViewModels
     {
         #region Private fields
         private bool _isLoading = false;
+        private CatrobatProgram _selectedCatrobatProgram;
 
         #endregion
 
         public EventAggregator EventAggregator { get; private set; }
+
+        /// <summary>
+        /// Is set from code behind, used for player.
+        /// </summary>
+        public Page MainView { get; internal set; }
 
         public ObservableCollection<CatrobatProgram> CatrobatPrograms { get; set; }
 
@@ -32,6 +40,27 @@ namespace Catrobat.ViewModels
             private set { base.SetProperty(ref _isLoading, value); }
         }
 
+        public CatrobatProgram SelectedCatrobatProgram
+        {
+            get { return _selectedCatrobatProgram; }
+            set
+            {
+                _selectedCatrobatProgram = value;
+                try
+                {
+                    Catrobat_Player.NativeComponent.NativeWrapper.SetProject(SelectedCatrobatProgram.Program);
+                    Catrobat_PlayerAdapter playerObject = new Catrobat_PlayerAdapter();
+                    playerObject.InitPlayer(MainView, "");
+                }
+                catch (Exception e)
+                {
+
+                }
+
+            }
+        }
+
+
         public MainPageViewModel(EventAggregator eventAggregator)
         {
             EventAggregator = eventAggregator;
@@ -39,6 +68,8 @@ namespace Catrobat.ViewModels
             EventAggregator.GetEvent<DownloadingMessage>().Subscribe((t) => { Downloading(t); });
 
             LoadCatrobatPrograms();
+
+
         }
 
         private void Downloading(DownloadStatus t)

@@ -98,11 +98,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\CatrobatLanguage\Fake.cs" />
-    <Compile Include="Common\CatrobatLanguage\program_098.cs" />
+    <Compile Include="Common\Fake.cs" />
+    <Compile Include="Models\v098\__CantrobatLanguage.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Messages\DownloadingMessage.cs" />
     <Compile Include="Models\CatrobatProgram.cs" />
+    <Compile Include="Models\v098\header.cs" />
+    <Compile Include="Models\v098\program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
@@ -138,6 +140,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Catrobat.Player\Catrobat.Player.WindowsPhone\Catrobat.Player.WindowsPhone.vcxproj">
+      <Project>{54144ca7-b859-4f79-b682-dad92b4e3353}</Project>
+      <Name>Catrobat.Player.WindowsPhone</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
