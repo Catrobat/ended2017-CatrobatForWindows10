@@ -92,6 +92,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Models\v098\__CantrobatLanguage.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +102,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\Fake.cs" />
+    <Compile Include="Models\v098\look.cs" />
+    <Compile Include="Models\v098\object.cs" />
+    <Compile Include="Models\v098\script.cs" />
     <Compile Include="Models\v098\__CantrobatLanguage.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Messages\DownloadingMessage.cs" />
@@ -126,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\dummy.PNG" />
+    <Content Include="Models\v098\__Readme.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

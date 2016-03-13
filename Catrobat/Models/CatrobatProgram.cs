@@ -45,6 +45,7 @@ namespace Catrobat.Models
                 System.IO.FileStream f = new System.IO.FileStream(path, System.IO.FileMode.Open);
                 XmlSerializer xsSubmit = new XmlSerializer(typeof(program));
                 return _program = xsSubmit.Deserialize(f) as program;
+                return null;
             }
         }
 
