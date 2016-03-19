@@ -339,6 +339,40 @@ namespace Catrobat.Models.v098 {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ReferenceElemet {
+        
+        private string referenceField;
+        
+        private string valueField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string reference {
+            get {
+                return this.referenceField;
+            }
+            set {
+                this.referenceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class formula {
         
         private formula leftChildField;
@@ -404,6 +438,7 @@ namespace Catrobat.Models.v098 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetLookBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetXBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ForeverBrick))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
@@ -411,6 +446,26 @@ namespace Catrobat.Models.v098 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class brick {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SetLookBrick : brick {
+        
+        private ReferenceElemet lookField;
+        
+        /// <remarks/>
+        public ReferenceElemet look {
+            get {
+                return this.lookField;
+            }
+            set {
+                this.lookField = value;
+            }
+        }
     }
     
     /// <remarks/>
