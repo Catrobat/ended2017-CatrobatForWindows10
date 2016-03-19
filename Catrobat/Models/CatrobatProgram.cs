@@ -21,6 +21,11 @@ namespace Catrobat.Models
         #endregion
 
         #region Public properties
+        public string InternalName
+        {
+            get { return _storagePath.Substring(_storagePath.LastIndexOf('\\') + 1); }
+        }
+
         public BitmapImage Thumbnail
         {
             get
@@ -42,10 +47,12 @@ namespace Catrobat.Models
             {
                 if (_program != null) return _program;
                 string path = string.Format("{0}\\code.xml", _storagePath);
-                System.IO.FileStream f = new System.IO.FileStream(path, System.IO.FileMode.Open);
-                XmlSerializer xsSubmit = new XmlSerializer(typeof(program));
-                return _program = xsSubmit.Deserialize(f) as program;
-                return null;
+                using (System.IO.FileStream f = new System.IO.FileStream(path, System.IO.FileMode.Open))
+                {
+                    XmlSerializer xsSubmit = new XmlSerializer(typeof(program));
+                    _program = xsSubmit.Deserialize(f) as program;
+                }
+                return _program;
             }
         }
 

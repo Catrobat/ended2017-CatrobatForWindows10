@@ -1,16 +1,13 @@
-﻿using Catrobat_Player.NativeComponent;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
+using Catrobat_Player.NativeComponent;
 
 namespace Catrobat.Models.v098
 {
-    partial class script 
+    partial class SetLookBrick 
     {
-
-
     }
 }

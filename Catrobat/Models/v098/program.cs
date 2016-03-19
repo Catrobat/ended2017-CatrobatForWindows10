@@ -15,7 +15,11 @@ namespace Catrobat.Models.v098
         public IHeader Header { get { return this.header; } set { } }
 
         [XmlIgnore]
-        public IList<IObject> Objects { get { return new List<IObject>(); } set { } }
+        public IList<IObject> Objects
+        {
+            get { return this.objectList.Cast<IObject>().ToList(); }
+            set { }
+        }
 
         [XmlIgnore]
         public IList<IUserVariable> Variables

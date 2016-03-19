@@ -23,7 +23,7 @@ namespace Catrobat.Views
             var p = e.Parameter as CatrobatProgram;
             Catrobat_Player.NativeComponent.NativeWrapper.SetProject(p.Program);
             Catrobat_PlayerAdapter playerObject = new Catrobat_PlayerAdapter();
-            playerObject.InitPlayer(this, p.Program.header.ApplicationName);
+            playerObject.InitPlayer(this, p.InternalName);
         }
 
     }

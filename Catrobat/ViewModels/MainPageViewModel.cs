@@ -73,7 +73,7 @@ namespace Catrobat.ViewModels
         /// </summary>
         private void LoadCatrobatPrograms()
         {
-            string destPath = string.Format("{0}\\programs", Windows.Storage.ApplicationData.Current.LocalFolder.Path);
+            string destPath = string.Format("{0}\\Projects", Windows.Storage.ApplicationData.Current.LocalFolder.Path);
             if (!Directory.Exists(destPath)) Directory.CreateDirectory(destPath);
 
             foreach (string f in Directory.GetFiles(Windows.Storage.ApplicationData.Current.LocalFolder.Path))
