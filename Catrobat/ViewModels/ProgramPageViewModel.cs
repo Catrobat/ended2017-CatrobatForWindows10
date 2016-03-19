@@ -1,4 +1,6 @@
 ﻿using Catrobat.Models;
+using Catrobat.Repositories;
+using Microsoft.Practices.Unity.Utility;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Windows.Mvvm;
@@ -10,7 +12,7 @@ namespace Catrobat.ViewModels
     class ProgramPageViewModel : ViewModelBase
     {
         #region Private fields
-        private CatrobatProgram _catrobatProgram;
+        private string _catrobatProgramId;
         #endregion
 
         #region Public properties
@@ -21,19 +23,19 @@ namespace Catrobat.ViewModels
 
         #endregion
 
-        public ProgramPageViewModel(INavigationService navService, EventAggregator eventAggregator)
+        public ProgramPageViewModel(INavigationService navService, 
+                                    EventAggregator eventAggregator)
         {
             PlayCommand = new DelegateCommand(() =>
             {
-                navService.Navigate(CatrobatPage.Player.ToString(), 
-                    _catrobatProgram /* Just for testing will not work in reality */);
+                navService.Navigate(CatrobatPage.Player.ToString(), _catrobatProgramId);
             });
         }
 
         public override void OnNavigatedTo(NavigatedToEventArgs e, Dictionary<string, object> viewModelState)
         {
-            _catrobatProgram = e.Parameter as CatrobatProgram; // TODO: don't pass complex types
             base.OnNavigatedTo(e, viewModelState);
+            _catrobatProgramId = e.Parameter as string;
         }
 
         public override void OnNavigatingFrom(NavigatingFromEventArgs e, Dictionary<string, object> viewModelState, bool suspending)

@@ -3,6 +3,8 @@ using Windows.ApplicationModel.Activation;
 using Prism.Unity.Windows;
 using Prism.Events;
 using Catrobat.Services;
+using Catrobat.Repositories;
+using Catrobat.Models;
 
 namespace Catrobat
 {
@@ -31,8 +33,8 @@ namespace Catrobat
         {
             base.ConfigureContainer();
             RegisterTypeIfMissing(typeof(EventAggregator), typeof(EventAggregator), true);
-            RegisterTypeIfMissing(typeof(ProgramService), typeof(ProgramService), true);
-
+            RegisterTypeIfMissing(typeof(ExtractService), typeof(ExtractService), true);
+            RegisterTypeIfMissing(typeof(IRepository<CatrobatProgram>), typeof(CatrobatProgramRepository), true);
         }
 
     }

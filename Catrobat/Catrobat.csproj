@@ -101,6 +101,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Fake.cs" />
     <Compile Include="Models\v098\ForeverBrick.cs" />
     <Compile Include="Models\v098\look.cs" />
@@ -116,8 +117,11 @@
     <Compile Include="Models\v098\header.cs" />
     <Compile Include="Models\v098\program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ProgramService.cs" />
+    <Compile Include="Repositories\CatrobatProgramRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Services\ExtractService.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\PlayerPageViewModel.cs" />
     <Compile Include="ViewModels\ProgramPageViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

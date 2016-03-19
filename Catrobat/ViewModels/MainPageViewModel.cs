@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using Prism.Windows.Navigation;
 using Prism.Commands;
 using Catrobat.Services;
+using Catrobat.Repositories;
 
 namespace Catrobat.ViewModels
 {
@@ -14,7 +15,7 @@ namespace Catrobat.ViewModels
         #region Private fields
         private bool _isLoading = false;
         private INavigationService _navService;
-        private ProgramService _programService;
+        private IRepository<CatrobatProgram> _catrobatProgramRepo;
 
         #endregion
 
@@ -37,20 +38,20 @@ namespace Catrobat.ViewModels
 
         public MainPageViewModel(INavigationService navService, 
                                  EventAggregator eventAggregator,
-                                 ProgramService programService)
+                                 IRepository<CatrobatProgram> catrobatProgramRepository)
         {
             _navService = navService;
-            _programService = programService;
+            _catrobatProgramRepo = catrobatProgramRepository;
             EventAggregator = eventAggregator;
             CatrobatPrograms = new ObservableCollection<CatrobatProgram>();
             EventAggregator.GetEvent<DownloadingMessage>().Subscribe((t) => { Downloading(t); });
 
             ProgramSelectCommand = new DelegateCommand<CatrobatProgram>((p) =>
             {
-                navService.Navigate(CatrobatPage.Program.ToString(), p /* Just for testing will not work in reality */);
+                navService.Navigate(CatrobatPage.Program.ToString(), p.Id);
             });
 
-            CatrobatPrograms = new ObservableCollection<CatrobatProgram>(_programService.GetPrograms());
+            CatrobatPrograms = new ObservableCollection<CatrobatProgram>(_catrobatProgramRepo.GetAll());
         }
 
         private void Downloading(DownloadStatus t)
@@ -58,7 +59,7 @@ namespace Catrobat.ViewModels
             IsDownloading = t == DownloadStatus.Started ? true : false;
             if (t == DownloadStatus.Finished)
             {
-                CatrobatPrograms = new ObservableCollection<CatrobatProgram>(_programService.GetPrograms());
+                CatrobatPrograms = new ObservableCollection<CatrobatProgram>(_catrobatProgramRepo.GetAll());
             }
         }
 

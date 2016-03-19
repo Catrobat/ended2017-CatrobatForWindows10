@@ -15,7 +15,7 @@ namespace Catrobat.Models
         #endregion
 
         #region Public properties
-        public string InternalName
+        public string Id
         {
             get { return _storagePath.Substring(_storagePath.LastIndexOf('\\') + 1); }
         }

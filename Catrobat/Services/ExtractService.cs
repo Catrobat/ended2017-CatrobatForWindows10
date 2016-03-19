@@ -1,16 +1,15 @@
-﻿using Catrobat.Models;
+﻿using Catrobat.Common;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 
 namespace Catrobat.Services
 {
-    class ProgramService
+    class ExtractService
     {
-        public IList<CatrobatProgram> GetPrograms()
+        public void ExtractPrograms()
         {
-            string destPath = string.Format("{0}\\Projects", Windows.Storage.ApplicationData.Current.LocalFolder.Path);
+            string destPath = Constants.PROJECT_PATH;
             if (!Directory.Exists(destPath)) Directory.CreateDirectory(destPath);
 
             foreach (string f in Directory.GetFiles(Windows.Storage.ApplicationData.Current.LocalFolder.Path))
@@ -24,12 +23,6 @@ namespace Catrobat.Services
                     File.Delete(f);
                 }
             }
-            List<CatrobatProgram> programs = new List<CatrobatProgram>();
-            foreach (string storagePath in Directory.GetDirectories(destPath))
-            {
-                programs.Add(new CatrobatProgram(storagePath));
-            }
-            return programs;
         }
 
     }
