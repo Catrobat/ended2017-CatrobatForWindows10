@@ -43,8 +43,16 @@ namespace Catrobat.Models
                 string path = string.Format("{0}\\code.xml", _storagePath);
                 using (System.IO.FileStream f = new System.IO.FileStream(path, System.IO.FileMode.Open))
                 {
-                    XmlSerializer xsSubmit = new XmlSerializer(typeof(program));
-                    _program = xsSubmit.Deserialize(f) as program;
+                    try
+                    {
+                        XmlSerializer xsSubmit = new XmlSerializer(typeof(program));
+                        _program = xsSubmit.Deserialize(f) as program;
+                    }
+                    catch (Exception ex)
+                    {
+                        // TODO: Remove this!!!
+                        (new Windows.UI.Popups.MessageDialog(string.Format("{0}\n{1}", path, ex.Message))).ShowAsync();
+                    }
                 }
                 return _program;
             }
