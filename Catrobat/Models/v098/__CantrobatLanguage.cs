@@ -438,6 +438,12 @@ namespace Catrobat.Models.v098 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlaceAtBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetSizeToBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NoteBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeVolumeByNBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetVolumeToBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlaySoundBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetLookBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetXBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ForeverBrick))]
@@ -446,6 +452,131 @@ namespace Catrobat.Models.v098 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class brick {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class PlaceAtBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SetSizeToBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class NoteBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ChangeVolumeByNBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SetVolumeToBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class PlaySoundBrick : brick {
+        
+        private ReferenceElemet soundField;
+        
+        /// <remarks/>
+        public ReferenceElemet sound {
+            get {
+                return this.soundField;
+            }
+            set {
+                this.soundField = value;
+            }
+        }
     }
     
     /// <remarks/>

@@ -16,14 +16,36 @@ namespace Catrobat.Services
             {
                 if (f.EndsWith(".zip"))
                 {
+                    string path = string.Format("{0}\\{1}", destPath, Guid.NewGuid());
                     using (ZipArchive archive = ZipFile.Open(f, ZipArchiveMode.Read))
                     {
-                        archive.ExtractToDirectory(string.Format("{0}\\{1}", destPath, Guid.NewGuid()));
+                        archive.ExtractToDirectory(path);
                     }
                     File.Delete(f);
+                    CorrectXml(path);
                 }
             }
         }
 
+        private void CorrectXml(string path)
+        {
+            foreach (string f in Directory.GetFiles(path))
+            {
+                if (f.EndsWith("code.xml"))
+                {
+                    string s;
+                    using (var read = new StreamReader(File.Open(f, FileMode.Open)))
+                    {
+                        s = read.ReadToEnd();
+                        s = s.Replace("<program>", "<program xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">");
+                        s = s.Replace(" type=\"", " xsi:type=\"");
+                    }
+                    using (var stream = new StreamWriter(new FileStream(f, FileMode.Create, FileAccess.Write)))
+                    {
+                        stream.Write(s);
+                    }
+                }
+            }
+        }
     }
 }

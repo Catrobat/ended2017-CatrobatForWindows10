@@ -16,13 +16,18 @@ namespace Catrobat.ViewModels
         private bool _isLoading = false;
         private INavigationService _navService;
         private IRepository<CatrobatProgram> _catrobatProgramRepo;
+        private ObservableCollection<CatrobatProgram> _catrobatPrograms;
 
         #endregion
 
         #region Public properties
         public EventAggregator EventAggregator { get; private set; }
 
-        public ObservableCollection<CatrobatProgram> CatrobatPrograms { get; set; }
+        public ObservableCollection<CatrobatProgram> CatrobatPrograms
+        {
+            get { return _catrobatPrograms; }
+            set { SetProperty(ref _catrobatPrograms, value); }
+        }
 
         public bool IsDownloading
         {
@@ -36,7 +41,7 @@ namespace Catrobat.ViewModels
         public DelegateCommand<CatrobatProgram> ProgramSelectCommand { get; set; }
         #endregion
 
-        public MainPageViewModel(INavigationService navService, 
+        public MainPageViewModel(INavigationService navService,
                                  EventAggregator eventAggregator,
                                  IRepository<CatrobatProgram> catrobatProgramRepository)
         {
