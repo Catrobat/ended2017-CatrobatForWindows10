@@ -335,6 +335,7 @@ namespace Catrobat.Models.v098 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UserVariable))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -366,6 +367,14 @@ namespace Catrobat.Models.v098 {
                 this.valueField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UserVariable : ReferenceElemet {
     }
     
     /// <remarks/>
@@ -574,7 +583,7 @@ namespace Catrobat.Models.v098 {
         
         private bool inUserBrickField;
         
-        private ReferenceElemet userVariableField;
+        private UserVariable userVariableField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
@@ -598,7 +607,7 @@ namespace Catrobat.Models.v098 {
         }
         
         /// <remarks/>
-        public ReferenceElemet userVariable {
+        public UserVariable userVariable {
             get {
                 return this.userVariableField;
             }
@@ -834,7 +843,7 @@ namespace Catrobat.Models.v098 {
         
         private bool inUserBrickField;
         
-        private ReferenceElemet userVariableField;
+        private UserVariable userVariableField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
@@ -858,7 +867,7 @@ namespace Catrobat.Models.v098 {
         }
         
         /// <remarks/>
-        public ReferenceElemet userVariable {
+        public UserVariable userVariable {
             get {
                 return this.userVariableField;
             }

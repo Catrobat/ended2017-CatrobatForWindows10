@@ -21,6 +21,7 @@ namespace Catrobat.Models.v098
         [XmlIgnore]
         public IList<IUserVariable> Variables
         {
+            // TODO: implement me
             get { return new List<IUserVariable>(); }
             set { }
         }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Catrobat_Player.NativeComponent;
 using System.Xml.Serialization;
+using System.Linq;
 
 namespace Catrobat.Models.v098
 {
@@ -10,7 +11,7 @@ namespace Catrobat.Models.v098
         [XmlIgnore]
         public IList<IBrick> Bricks
         {
-            get { return new List<IBrick>(); }// return brickList.Cast<IBrick>().ToList(); }
+            get { return brickList.Cast<IBrick>().ToList(); }
             set { }
         }
         #endregion

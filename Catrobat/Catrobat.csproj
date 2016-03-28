@@ -103,12 +103,16 @@
     </Compile>
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Fake.cs" />
-    <Compile Include="Models\v098\ForeverBrick.cs" />
+    <Compile Include="Models\v098\BroadcastScript.cs" />
+    <Compile Include="Models\v098\Bricks\ForeverBrick.cs" />
+    <Compile Include="Models\v098\UserVariable.cs" />
+    <Compile Include="Models\v098\WhenScript.cs" />
+    <Compile Include="Models\v098\formula.cs" />
     <Compile Include="Models\v098\look.cs" />
     <Compile Include="Models\v098\object.cs" />
     <Compile Include="Models\v098\script.cs" />
-    <Compile Include="Models\v098\SetLookBrick.cs" />
-    <Compile Include="Models\v098\SetXBrick.cs" />
+    <Compile Include="Models\v098\Bricks\SetLookBrick.cs" />
+    <Compile Include="Models\v098\Bricks\SetXBrick.cs" />
     <Compile Include="Models\v098\StartScript.cs" />
     <Compile Include="Models\v098\__CantrobatLanguage.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />

@@ -67,7 +67,7 @@
     <xs:attribute name="category" type="xs:string"/>
   </xs:complexType>
 
-  <!-- Reference element -->
+  <!-- Referencing elements -->
   <xs:complexType name="ReferenceElemet">
     <xs:simpleContent>
       <xs:extension base ="xs:string">
@@ -75,6 +75,14 @@
         </xs:attribute>
       </xs:extension>
     </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="UserVariable">
+    <xs:complexContent>
+      <xs:extension base="ReferenceElemet">
+        <xs:all/>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <!-- Object definition -->
@@ -316,7 +324,7 @@
             </xs:complexType>
           </xs:element>
           <xs:element name="inUserBrick" type="xs:boolean"></xs:element>
-          <xs:element name="userVariable" type="ReferenceElemet" />
+          <xs:element name="userVariable" type="UserVariable" />
         </xs:all>
       </xs:extension>
     </xs:complexContent>
@@ -504,7 +512,7 @@
             </xs:complexType>
           </xs:element>
           <xs:element name="inUserBrick" type="xs:boolean"></xs:element>
-          <xs:element name="userVariable" type="ReferenceElemet" />
+          <xs:element name="userVariable" type="UserVariable" />
         </xs:all>
       </xs:extension>
     </xs:complexContent>
