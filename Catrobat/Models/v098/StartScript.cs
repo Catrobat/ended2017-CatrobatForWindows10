@@ -16,5 +16,22 @@ namespace Catrobat.Models.v098
         }
         #endregion
 
+        [XmlIgnore]
+        public List<UserVariable> UserVariables
+        {
+            get
+            {
+                List<UserVariable> result = new List<UserVariable>();
+                foreach (brick b in brickList)
+                {
+                    if (b is VariableBrick)
+                    {
+                        result.Add(((VariableBrick)b).userVariable);
+                    }
+                }
+                return result;
+            }
+        }
+
     }
 }

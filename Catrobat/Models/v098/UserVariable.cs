@@ -1,4 +1,5 @@
-﻿using Catrobat_Player.NativeComponent;
+﻿using Catrobat.Common;
+using Catrobat_Player.NativeComponent;
 using System.Xml.Serialization;
 
 namespace Catrobat.Models.v098
@@ -11,7 +12,7 @@ namespace Catrobat.Models.v098
         {
             get
             {
-                return this.Value;
+                return Value;
             }
             set { }
         }

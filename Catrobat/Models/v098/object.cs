@@ -32,8 +32,26 @@ namespace Catrobat.Models.v098
         [XmlIgnore]
         public IList<IUserVariable> UserVariables
         {
-            // TODO: implement me
-            get { return new List<IUserVariable>(); }
+            get
+            {
+                List<UserVariable> result = new List<UserVariable>();
+                foreach (script s in scriptList)
+                {
+                    if (s is BroadcastScript)
+                    {
+                        result.AddRange(((BroadcastScript)s).UserVariables);
+                    }
+                    else if (s is WhenScript)
+                    {
+                        result.AddRange(((WhenScript)s).UserVariables);
+                    }
+                    else if (s is StartScript)
+                    {
+                        result.AddRange(((StartScript)s).UserVariables);
+                    }
+                }
+                return result.Cast<IUserVariable>().ToList();
+            }
             set { }
         }
         #endregion

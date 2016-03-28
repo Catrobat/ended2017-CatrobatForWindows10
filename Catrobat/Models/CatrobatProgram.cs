@@ -1,4 +1,5 @@
-﻿using Catrobat.Models.v098;
+﻿using Catrobat.Common;
+using Catrobat.Models.v098;
 using System;
 using System.IO;
 using System.Xml.Serialization;
@@ -40,6 +41,7 @@ namespace Catrobat.Models
             get
             {
                 if (_program != null) return _program;
+
                 string path = string.Format("{0}\\code.xml", _storagePath);
                 using (System.IO.FileStream f = new System.IO.FileStream(path, System.IO.FileMode.Open))
                 {

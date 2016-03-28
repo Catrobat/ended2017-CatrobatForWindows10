@@ -183,7 +183,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  
+
   <!-- Brick definition -->
   <xs:complexType name="brick" />
 
@@ -312,7 +312,7 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="SetVariableBrick">
+  <xs:complexType name="VariableBrick">
     <xs:complexContent>
       <xs:extension base="brick">
         <xs:all>
@@ -326,6 +326,22 @@
           <xs:element name="inUserBrick" type="xs:boolean"></xs:element>
           <xs:element name="userVariable" type="UserVariable" />
         </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="SetVariableBrick">
+    <xs:complexContent>
+      <xs:extension base="VariableBrick">
+        <xs:all/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ChangeVariableBrick">
+    <xs:complexContent>
+      <xs:extension base="VariableBrick">
+        <xs:all/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -500,24 +516,6 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="ChangeVariableBrick">
-    <xs:complexContent>
-      <xs:extension base="brick">
-        <xs:all>
-          <xs:element name="formulaList">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="inUserBrick" type="xs:boolean"></xs:element>
-          <xs:element name="userVariable" type="UserVariable" />
-        </xs:all>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
   <xs:complexType name="NextLookBrick">
     <xs:complexContent>
       <xs:extension base="brick">
@@ -557,7 +555,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  
+
   <xs:complexType name="SetTransparencyBrick">
     <xs:complexContent>
       <xs:extension base="brick">
@@ -589,5 +587,5 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  
+
 </xs:schema>
