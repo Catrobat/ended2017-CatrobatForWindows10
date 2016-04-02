@@ -13,52 +13,41 @@ namespace Catrobat.Common
     class ReferenceExplorer
     {
         #region Private fields
-        private static ReferenceExplorer _instance = null;
-        private Dictionary<program, List<look>> _dictLook = null;
-        private Dictionary<program, List<sound>> _dictSound = null;
-        private Dictionary<program, List<UserVariable>> _dictUserVariable = null;
-        private volatile program _currentProgram = null;
+        private Dictionary<string, look> _looks;
+        private Dictionary<string, sound> _sounds;
         #endregion
 
         #region Public properties
-        public static ReferenceExplorer Instance
-        {
-            get
-            {
-                return _instance = _instance == null ? new ReferenceExplorer() : _instance;
-            }
-        }
-
-        public List<look> Looks { get { return _dictLook[_currentProgram]; } }
-
-        public List<sound> Sounds { get { return _dictSound[_currentProgram]; } }
-
-        public List<UserVariable> UserVariables { get { return _dictUserVariable[_currentProgram]; } }
-
         #endregion
 
         private ReferenceExplorer()
         {
-            _dictLook = new Dictionary<program, List<look>>();
-            _dictSound = new Dictionary<program, List<sound>>();
-            _dictUserVariable = new Dictionary<program, List<UserVariable>>();
+            _looks = new Dictionary<string, look>();
+            _sounds = new Dictionary<string, sound>();
         }
 
-        public void SetProgram(program p)
+        public program LoadReferences(program p)
         {
-            _currentProgram = p;
-            if (!_dictLook.ContainsKey(p))
+            foreach (var o in p.objectList)
             {
-                _dictLook.Add(p, new List<look>());
+                for (int i = 0; i < o.lookList.Count(); i++)
+                {
+                    if (i == 0)
+                        _looks["lookList/look"] = o.lookList[i];
+                    else
+                        _looks[string.Format("lookList/look[{0}]", i + 1)] = o.lookList[i];
+                }
+                for (int i = 0; i < o.soundList.Count(); i++)
+                {
+                    if (i == 0)
+                        _sounds["soundList/sound"] = o.soundList[i];
+                    else
+                        _sounds[string.Format("soundList/sound[{0}]", i + 1)] = o.soundList[i];
+                }
+                // TODO: Solve references for UserVariables
             }
-            if (!_dictSound.ContainsKey(p))
-            {
-                _dictSound.Add(p, new List<sound>());
-            }
-            if (!_dictUserVariable.ContainsKey(p))
-            {
-                _dictUserVariable.Add(p, new List<UserVariable>());
-            }
+
+            return p;
         }
 
     }
