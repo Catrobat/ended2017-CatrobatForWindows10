@@ -13,8 +13,6 @@ namespace Catrobat.Common
     class ReferenceExplorer
     {
         #region Private fields
-        private Dictionary<string, look> _looks;
-        private Dictionary<string, sound> _sounds;
         #endregion
 
         #region Public properties
@@ -22,32 +20,69 @@ namespace Catrobat.Common
 
         private ReferenceExplorer()
         {
-            _looks = new Dictionary<string, look>();
-            _sounds = new Dictionary<string, sound>();
         }
 
-        public program LoadReferences(program p)
+        /// <summary>
+        /// The reference concept in the xml is pretty stupid, so we need 
+        /// this method to resolve the references.
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public static program LoadReferences(program p)
         {
-            foreach (var o in p.objectList)
+            Dictionary<string, look> l0 = new Dictionary<string, look>();
+            Dictionary<string, sound> s0 = new Dictionary<string, sound>();
+            Dictionary<string, UserVariable> v0 = new Dictionary<string, UserVariable>();
+
+            for (int y = 0; y < p.objectList.Count(); y++)
             {
+                var o = p.objectList[y];
                 for (int i = 0; i < o.lookList.Count(); i++)
                 {
-                    if (i == 0)
-                        _looks["lookList/look"] = o.lookList[i];
-                    else
-                        _looks[string.Format("lookList/look[{0}]", i + 1)] = o.lookList[i];
+                    l0[string.Format("../../../../../lookList/look{0}", F(i))] = o.lookList[i];
                 }
+
                 for (int i = 0; i < o.soundList.Count(); i++)
                 {
-                    if (i == 0)
-                        _sounds["soundList/sound"] = o.soundList[i];
-                    else
-                        _sounds[string.Format("soundList/sound[{0}]", i + 1)] = o.soundList[i];
+                    s0[string.Format("../../../../../soundList/sound{0}", F(i))] = o.soundList[i];
                 }
-                // TODO: Solve references for UserVariables
+
+                for (int i = 0; i < o.scriptList.Count(); i++)
+                {
+                    var s = o.scriptList[i];
+                    Dictionary<string, UserVariable> v1 = new Dictionary<string, UserVariable>();
+                    for (int j = 0; j < s.brickList.Count(); j++)
+                    {
+                        var b = s.brickList[j];
+                        Dictionary<string, UserVariable> v2 = new Dictionary<string, UserVariable>();
+                        if (b is VariableBrick)
+                        {
+                            var v = b as VariableBrick;
+                            if (string.IsNullOrEmpty(v.userVariable.reference))
+                            {
+                                v0[string.Format("../../../../../../object{0}/scriptList/script{1}/brickList/brick{0}/userVariable",
+                                    F(y), F(i), F(j))] = v.userVariable;
+                                v1[string.Format("../../../../script{0}/brickList/brick{1}/userVariable",
+                                    F(i), F(j))] = v.userVariable;
+                                v2[string.Format("../../brick{0}/userVariable",
+                                    F(j))] = v.userVariable;
+                            }
+                            else
+                            {
+                                // TODO: Solve references for UserVariables
+                                // TODO: Read variables
+                            }
+                        }
+                    }
+                }
             }
 
             return p;
+        }
+
+        static private string F(int i)
+        {
+            return i == 0 ? string.Empty : string.Format("[{0}]", i + 1);
         }
 
     }

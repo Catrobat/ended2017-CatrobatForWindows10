@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Catrobat.Models.v098
 {
-    partial class WhenScript : IWhenScript
+    partial class WhenScript : script, IWhenScript
     {
         #region NativeComponent
         [XmlIgnore]
@@ -15,16 +15,6 @@ namespace Catrobat.Models.v098
             get
             {
                 return action;
-            }
-            set { }
-        }
-
-        [XmlIgnore]
-        public IList<IBrick> Bricks
-        {
-            get
-            {
-                return brickList.Cast<IBrick>().ToList();
             }
             set { }
         }

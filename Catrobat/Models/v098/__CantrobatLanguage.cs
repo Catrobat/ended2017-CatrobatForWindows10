@@ -1046,18 +1046,8 @@ namespace Catrobat.Models.v098 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class script {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class WhenScript : script {
         
         private brick[] brickListField;
-        
-        private string actionField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
@@ -1069,6 +1059,16 @@ namespace Catrobat.Models.v098 {
                 this.brickListField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class WhenScript : script {
+        
+        private string actionField;
         
         /// <remarks/>
         public string action {
@@ -1088,20 +1088,7 @@ namespace Catrobat.Models.v098 {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class BroadcastScript : script {
         
-        private brick[] brickListField;
-        
         private string receivedMessageField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public brick[] brickList {
-            get {
-                return this.brickListField;
-            }
-            set {
-                this.brickListField = value;
-            }
-        }
         
         /// <remarks/>
         public string receivedMessage {
@@ -1121,20 +1108,7 @@ namespace Catrobat.Models.v098 {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class StartScript : script {
         
-        private brick[] brickListField;
-        
         private bool isUserScriptField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public brick[] brickList {
-            get {
-                return this.brickListField;
-            }
-            set {
-                this.brickListField = value;
-            }
-        }
         
         /// <remarks/>
         public bool isUserScript {
