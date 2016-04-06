@@ -75,6 +75,7 @@ namespace Catrobat.Models
 
                         // Deserialize directly to final class.
                         _program = xDoc.Deserialize<program>();
+                        ReferenceExplorer.LoadReferences(_program);
 #else
                         XmlSerializer xsSubmit = new XmlSerializer(typeof(program));
                         _program = xsSubmit.Deserialize(f) as program;
