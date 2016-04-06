@@ -67,7 +67,7 @@
     <xs:attribute name="category" type="xs:string"/>
   </xs:complexType>
 
-  <!-- Reference element -->
+  <!-- Referencing elements -->
   <xs:complexType name="ReferenceElemet">
     <xs:simpleContent>
       <xs:extension base ="xs:string">
@@ -75,6 +75,14 @@
         </xs:attribute>
       </xs:extension>
     </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="UserVariable">
+    <xs:complexContent>
+      <xs:extension base="ReferenceElemet">
+        <xs:all/>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <!-- Object definition -->
@@ -123,21 +131,24 @@
   </xs:complexType>
 
   <!-- Script definition -->
-  <xs:complexType name="script" />
+  <xs:complexType name="script">
+    <xs:sequence>
+      <xs:element name="brickList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="brick" type="brick" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
   <xs:complexType name="StartScript">
     <xs:complexContent>
       <xs:extension base="script">
-        <xs:all>
-          <xs:element name="brickList">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="brick" type="brick" maxOccurs="unbounded"/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
+        <xs:sequence>
           <xs:element name="isUserScript" type="xs:boolean"></xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -145,16 +156,9 @@
   <xs:complexType name="BroadcastScript">
     <xs:complexContent>
       <xs:extension base="script">
-        <xs:all>
-          <xs:element name="brickList">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="brick" type="brick" maxOccurs="unbounded"/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
+        <xs:sequence>
           <xs:element name="receivedMessage" type="xs:string"></xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -162,20 +166,13 @@
   <xs:complexType name="WhenScript">
     <xs:complexContent>
       <xs:extension base="script">
-        <xs:all>
-          <xs:element name="brickList">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="brick" type="brick" maxOccurs="unbounded"/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
+        <xs:sequence>
           <xs:element name="action" type="xs:string"></xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  
+
   <!-- Brick definition -->
   <xs:complexType name="brick" />
 
@@ -304,7 +301,7 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="SetVariableBrick">
+  <xs:complexType name="VariableBrick">
     <xs:complexContent>
       <xs:extension base="brick">
         <xs:all>
@@ -316,8 +313,24 @@
             </xs:complexType>
           </xs:element>
           <xs:element name="inUserBrick" type="xs:boolean"></xs:element>
-          <xs:element name="userVariable" type="ReferenceElemet" />
+          <xs:element name="userVariable" type="UserVariable" />
         </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="SetVariableBrick">
+    <xs:complexContent>
+      <xs:extension base="VariableBrick">
+        <xs:all/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ChangeVariableBrick">
+    <xs:complexContent>
+      <xs:extension base="VariableBrick">
+        <xs:all/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -492,24 +505,6 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="ChangeVariableBrick">
-    <xs:complexContent>
-      <xs:extension base="brick">
-        <xs:all>
-          <xs:element name="formulaList">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="inUserBrick" type="xs:boolean"></xs:element>
-          <xs:element name="userVariable" type="ReferenceElemet" />
-        </xs:all>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
   <xs:complexType name="NextLookBrick">
     <xs:complexContent>
       <xs:extension base="brick">
@@ -549,7 +544,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  
+
   <xs:complexType name="SetTransparencyBrick">
     <xs:complexContent>
       <xs:extension base="brick">
@@ -581,5 +576,5 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  
+
 </xs:schema>

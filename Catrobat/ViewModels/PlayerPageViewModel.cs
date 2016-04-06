@@ -1,11 +1,7 @@
 ﻿using Catrobat.Repositories;
 using Prism.Windows.Mvvm;
 using Prism.Windows.Navigation;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Catrobat_Player;
 using Windows.UI.Xaml.Controls;
 using Catrobat.Models;
@@ -48,5 +44,6 @@ namespace Catrobat.ViewModels
         {
             base.OnNavigatingFrom(e, viewModelState, suspending);
         }
+
     }
 }

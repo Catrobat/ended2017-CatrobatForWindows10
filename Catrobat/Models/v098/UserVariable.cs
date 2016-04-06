@@ -1,17 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using Catrobat.Common;
 using Catrobat_Player.NativeComponent;
 using System.Xml.Serialization;
-using System.Linq;
 
 namespace Catrobat.Models.v098
 {
-    partial class script : IScript
+    partial class UserVariable : IUserVariable
     {
         #region NativeComponent
         [XmlIgnore]
-        public IList<IBrick> Bricks
+        public string Name
         {
-            get { return brickList.Cast<IBrick>().ToList(); }
+            get
+            {
+                return Value;
+            }
             set { }
         }
         #endregion

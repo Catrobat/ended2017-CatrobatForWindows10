@@ -1,13 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Catrobat_Player.NativeComponent;
 using System.Xml.Serialization;
 using System.Linq;
 
 namespace Catrobat.Models.v098
 {
-    partial class StartScript : script, IStartScript
+    partial class WhenScript : script, IWhenScript
     {
         #region NativeComponent
+        [XmlIgnore]
+        public string Action
+        {
+            get
+            {
+                return action;
+            }
+            set { }
+        }
         #endregion
 
         [XmlIgnore]

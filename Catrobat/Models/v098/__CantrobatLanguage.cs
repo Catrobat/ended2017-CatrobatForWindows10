@@ -335,6 +335,7 @@ namespace Catrobat.Models.v098 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UserVariable))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -366,6 +367,14 @@ namespace Catrobat.Models.v098 {
                 this.valueField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UserVariable : ReferenceElemet {
     }
     
     /// <remarks/>
@@ -444,7 +453,6 @@ namespace Catrobat.Models.v098 {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GoNStepsBackBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComeToFrontBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(NextLookBrick))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeVariableBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TurnLeftBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoopEndBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RepeatBrick))]
@@ -459,6 +467,8 @@ namespace Catrobat.Models.v098 {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IfLogicBeginBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(WaitBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShowBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VariableBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeVariableBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetVariableBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlaceAtBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetSizeToBrick))]
@@ -561,51 +571,6 @@ namespace Catrobat.Models.v098 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class NextLookBrick : brick {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class ChangeVariableBrick : brick {
-        
-        private formula[] formulaListField;
-        
-        private bool inUserBrickField;
-        
-        private ReferenceElemet userVariableField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public formula[] formulaList {
-            get {
-                return this.formulaListField;
-            }
-            set {
-                this.formulaListField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool inUserBrick {
-            get {
-                return this.inUserBrickField;
-            }
-            set {
-                this.inUserBrickField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ReferenceElemet userVariable {
-            get {
-                return this.userVariableField;
-            }
-            set {
-                this.userVariableField = value;
-            }
-        }
     }
     
     /// <remarks/>
@@ -824,17 +789,19 @@ namespace Catrobat.Models.v098 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeVariableBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetVariableBrick))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class SetVariableBrick : brick {
+    public partial class VariableBrick : brick {
         
         private formula[] formulaListField;
         
         private bool inUserBrickField;
         
-        private ReferenceElemet userVariableField;
+        private UserVariable userVariableField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
@@ -858,7 +825,7 @@ namespace Catrobat.Models.v098 {
         }
         
         /// <remarks/>
-        public ReferenceElemet userVariable {
+        public UserVariable userVariable {
             get {
                 return this.userVariableField;
             }
@@ -866,6 +833,22 @@ namespace Catrobat.Models.v098 {
                 this.userVariableField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ChangeVariableBrick : VariableBrick {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SetVariableBrick : VariableBrick {
     }
     
     /// <remarks/>
@@ -1063,18 +1046,8 @@ namespace Catrobat.Models.v098 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class script {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class WhenScript : script {
         
         private brick[] brickListField;
-        
-        private string actionField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
@@ -1086,6 +1059,16 @@ namespace Catrobat.Models.v098 {
                 this.brickListField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class WhenScript : script {
+        
+        private string actionField;
         
         /// <remarks/>
         public string action {
@@ -1105,20 +1088,7 @@ namespace Catrobat.Models.v098 {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class BroadcastScript : script {
         
-        private brick[] brickListField;
-        
         private string receivedMessageField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public brick[] brickList {
-            get {
-                return this.brickListField;
-            }
-            set {
-                this.brickListField = value;
-            }
-        }
         
         /// <remarks/>
         public string receivedMessage {
@@ -1138,20 +1108,7 @@ namespace Catrobat.Models.v098 {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class StartScript : script {
         
-        private brick[] brickListField;
-        
         private bool isUserScriptField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public brick[] brickList {
-            get {
-                return this.brickListField;
-            }
-            set {
-                this.brickListField = value;
-            }
-        }
         
         /// <remarks/>
         public bool isUserScript {

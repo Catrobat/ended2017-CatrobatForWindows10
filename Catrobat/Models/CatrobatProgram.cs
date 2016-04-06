@@ -1,6 +1,11 @@
-﻿using Catrobat.Models.v098;
+﻿#define NAMESPACE_MISSING_IN_XML
+using Catrobat.Common;
+using Catrobat.Models.v098;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -40,13 +45,41 @@ namespace Catrobat.Models
             get
             {
                 if (_program != null) return _program;
+
                 string path = string.Format("{0}\\code.xml", _storagePath);
                 using (System.IO.FileStream f = new System.IO.FileStream(path, System.IO.FileMode.Open))
                 {
                     try
                     {
+#if NAMESPACE_MISSING_IN_XML
+                        // From: http://stackoverflow.com/questions/36138915/xml-namespace-missing-for-parser/36140318#36140318
+
+                        // Load to intermediate XDocument
+                        XDocument xDoc;
+                        using (var reader = XmlReader.Create(f))
+                            xDoc = XDocument.Load(reader);
+
+                        // Fix namespace of "type" attributes
+                        XNamespace xsi = "http://www.w3.org/2001/XMLSchema-instance";
+                        var l = new List<XElement>(xDoc.Descendants("script"));
+                        l.AddRange(xDoc.Descendants("brick"));
+                        foreach (var element in l)
+                        {
+                            var attr = element.Attribute("type");
+                            if (attr == null)
+                                continue;
+                            var newAttr = new XAttribute(xsi + attr.Name.LocalName, attr.Value);
+                            attr.Remove();
+                            element.Add(newAttr);
+                        }
+
+                        // Deserialize directly to final class.
+                        _program = xDoc.Deserialize<program>();
+                        ReferenceExplorer.LoadReferences(_program);
+#else
                         XmlSerializer xsSubmit = new XmlSerializer(typeof(program));
                         _program = xsSubmit.Deserialize(f) as program;
+#endif
                     }
                     catch (Exception ex)
                     {
