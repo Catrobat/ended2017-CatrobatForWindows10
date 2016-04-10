@@ -1,19 +1,21 @@
 ﻿using Catrobat_Player.NativeComponent;
 using System.Xml.Serialization;
-using System.Linq;
+using System;
 
 namespace Catrobat.Models.v098
 {
-    partial class SetXBrick : ISetXBrick
+    partial class BroadcastBrick : IBroadcastBrick
     {
         #region NativeComponent
         [XmlIgnore]
-        public IFormulaTree PositionX
+        public string BroadcastMessage
         {
-            get { return formulaList.FirstOrDefault(x => x.category == "X_POSITION"); }
+            get
+            {
+                return broadcastMessage;
+            }
             set { }
         }
         #endregion
-
     }
 }

@@ -67,8 +67,8 @@
     <xs:attribute name="category" type="xs:string"/>
   </xs:complexType>
 
-  <!-- Referencing elements -->
-  <xs:complexType name="ReferenceElemet">
+  <!-- Referencing element UserVariable -->
+  <xs:complexType name="UserVariable">
     <xs:simpleContent>
       <xs:extension base ="xs:string">
         <xs:attribute name="reference" type="xs:string">
@@ -77,14 +77,24 @@
     </xs:simpleContent>
   </xs:complexType>
 
-  <xs:complexType name="UserVariable">
-    <xs:complexContent>
-      <xs:extension base="ReferenceElemet">
-        <xs:all/>
-      </xs:extension>
-    </xs:complexContent>
+  <!-- Referencing element look definition -->
+  <xs:complexType name="look">
+    <xs:sequence>
+      <xs:element name="fileName" type="xs:string"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"></xs:attribute>
+    <xs:attribute name="reference" type="xs:string"/>
   </xs:complexType>
 
+  <!-- Referencing element sound definition -->
+  <xs:complexType name="sound">
+    <xs:sequence>
+      <xs:element name="fileName" type="xs:string"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"></xs:attribute>
+    <xs:attribute name="reference" type="xs:string"/>
+  </xs:complexType>
+  
   <!-- Object definition -->
   <xs:complexType name="object">
     <xs:sequence>
@@ -112,22 +122,6 @@
       <xs:element name="userBricks"/>
     </xs:sequence>
     <xs:attribute name="name" type="xs:string"/>
-  </xs:complexType>
-
-  <!-- Look definition -->
-  <xs:complexType name="look">
-    <xs:sequence>
-      <xs:element name="fileName" type="xs:string"></xs:element>
-    </xs:sequence>
-    <xs:attribute name="name" type="xs:string"></xs:attribute>
-  </xs:complexType>
-
-  <!-- Sound definition -->
-  <xs:complexType name="sound">
-    <xs:sequence>
-      <xs:element name="fileName" type="xs:string"></xs:element>
-    </xs:sequence>
-    <xs:attribute name="name" type="xs:string"></xs:attribute>
   </xs:complexType>
 
   <!-- Script definition -->
@@ -205,7 +199,7 @@
     <xs:complexContent>
       <xs:extension base="brick">
         <xs:all>
-          <xs:element name="look" type="ReferenceElemet" />
+          <xs:element name="look" type="look" />
         </xs:all>
       </xs:extension>
     </xs:complexContent>
@@ -215,7 +209,7 @@
     <xs:complexContent>
       <xs:extension base="brick">
         <xs:all>
-          <xs:element name="sound" type="ReferenceElemet" />
+          <xs:element name="sound" type="sound" />
         </xs:all>
       </xs:extension>
     </xs:complexContent>
@@ -505,6 +499,22 @@
     </xs:complexContent>
   </xs:complexType>
 
+  <xs:complexType name="TurnRightBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:all>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
   <xs:complexType name="NextLookBrick">
     <xs:complexContent>
       <xs:extension base="brick">
@@ -572,6 +582,49 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MoveNStepsBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:all>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="IfOnEdgeBounceBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:all/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>  
+
+  <xs:complexType name="ShowTextBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:all>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="inUserBrick" type="xs:boolean"></xs:element>
+          <xs:element name="userVariable" type="UserVariable" />
+          <xs:element name="userVariableName" type="xs:string" />
         </xs:all>
       </xs:extension>
     </xs:complexContent>

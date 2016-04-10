@@ -4,16 +4,18 @@ using System.Linq;
 
 namespace Catrobat.Models.v098
 {
-    partial class SetXBrick : ISetXBrick
+    partial class TurnRightBrick : ITurnRightBrick
     {
         #region NativeComponent
         [XmlIgnore]
-        public IFormulaTree PositionX
+        public IFormulaTree Rotation
         {
-            get { return formulaList.FirstOrDefault(x => x.category == "X_POSITION"); }
+            get
+            {
+                return formulaList.FirstOrDefault(x => x.category == "TURN_RIGHT_DEGREES");
+            }
             set { }
         }
         #endregion
-
     }
 }

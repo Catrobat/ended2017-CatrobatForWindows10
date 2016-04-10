@@ -335,12 +335,11 @@ namespace Catrobat.Models.v098 {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UserVariable))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class ReferenceElemet {
+    public partial class UserVariable {
         
         private string referenceField;
         
@@ -367,14 +366,6 @@ namespace Catrobat.Models.v098 {
                 this.valueField = value;
             }
         }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class UserVariable : ReferenceElemet {
     }
     
     /// <remarks/>
@@ -447,12 +438,16 @@ namespace Catrobat.Models.v098 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShowTextBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IfOnEdgeBounceBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MoveNStepsBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetYBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetTransparencyBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(HideBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GoNStepsBackBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComeToFrontBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(NextLookBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TurnRightBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TurnLeftBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoopEndBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RepeatBrick))]
@@ -484,6 +479,92 @@ namespace Catrobat.Models.v098 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class brick {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ShowTextBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        private bool inUserBrickField;
+        
+        private UserVariable userVariableField;
+        
+        private string userVariableNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool inUserBrick {
+            get {
+                return this.inUserBrickField;
+            }
+            set {
+                this.inUserBrickField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public UserVariable userVariable {
+            get {
+                return this.userVariableField;
+            }
+            set {
+                this.userVariableField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string userVariableName {
+            get {
+                return this.userVariableNameField;
+            }
+            set {
+                this.userVariableNameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class IfOnEdgeBounceBrick : brick {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class MoveNStepsBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -571,6 +652,27 @@ namespace Catrobat.Models.v098 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class NextLookBrick : brick {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class TurnRightBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -963,10 +1065,10 @@ namespace Catrobat.Models.v098 {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class PlaySoundBrick : brick {
         
-        private ReferenceElemet soundField;
+        private sound soundField;
         
         /// <remarks/>
-        public ReferenceElemet sound {
+        public sound sound {
             get {
                 return this.soundField;
             }
@@ -981,17 +1083,109 @@ namespace Catrobat.Models.v098 {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class SetLookBrick : brick {
+    public partial class sound {
         
-        private ReferenceElemet lookField;
+        private string fileNameField;
+        
+        private string nameField;
+        
+        private string referenceField;
         
         /// <remarks/>
-        public ReferenceElemet look {
+        public string fileName {
+            get {
+                return this.fileNameField;
+            }
+            set {
+                this.fileNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string reference {
+            get {
+                return this.referenceField;
+            }
+            set {
+                this.referenceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SetLookBrick : brick {
+        
+        private look lookField;
+        
+        /// <remarks/>
+        public look look {
             get {
                 return this.lookField;
             }
             set {
                 this.lookField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class look {
+        
+        private string fileNameField;
+        
+        private string nameField;
+        
+        private string referenceField;
+        
+        /// <remarks/>
+        public string fileName {
+            get {
+                return this.fileNameField;
+            }
+            set {
+                this.fileNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string reference {
+            get {
+                return this.referenceField;
+            }
+            set {
+                this.referenceField = value;
             }
         }
     }
@@ -1117,72 +1311,6 @@ namespace Catrobat.Models.v098 {
             }
             set {
                 this.isUserScriptField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class sound {
-        
-        private string fileNameField;
-        
-        private string nameField;
-        
-        /// <remarks/>
-        public string fileName {
-            get {
-                return this.fileNameField;
-            }
-            set {
-                this.fileNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class look {
-        
-        private string fileNameField;
-        
-        private string nameField;
-        
-        /// <remarks/>
-        public string fileName {
-            get {
-                return this.fileNameField;
-            }
-            set {
-                this.fileNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
             }
         }
     }

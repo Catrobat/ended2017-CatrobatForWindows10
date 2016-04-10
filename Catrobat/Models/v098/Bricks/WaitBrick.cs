@@ -4,16 +4,18 @@ using System.Linq;
 
 namespace Catrobat.Models.v098
 {
-    partial class SetXBrick : ISetXBrick
+    partial class WaitBrick : IWaitBrick
     {
         #region NativeComponent
         [XmlIgnore]
-        public IFormulaTree PositionX
+        public IFormulaTree TimeToWaitInSeconds
         {
-            get { return formulaList.FirstOrDefault(x => x.category == "X_POSITION"); }
+            get
+            {
+                return formulaList.FirstOrDefault(x => x.category == "TIME_TO_WAIT_IN_SECONDS");
+            }
             set { }
         }
         #endregion
-
     }
 }
