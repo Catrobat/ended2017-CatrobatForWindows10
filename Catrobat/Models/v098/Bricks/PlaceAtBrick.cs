@@ -1,28 +1,28 @@
 ﻿using Catrobat_Player.NativeComponent;
 using System.Xml.Serialization;
+using System.Linq;
 
 namespace Catrobat.Models.v098
 {
-    partial class ChangeVariableBrick : IChangeVariableBrick
+    partial class PlaceAtBrick : IPlaceAtBrick
     {
         #region NativeComponent
         [XmlIgnore]
-        public IUserVariable Variable
+        public IFormulaTree PositionX
         {
             get
             {
-                return userVariable;
+                return formulaList.FirstOrDefault(x => x.category == "X_POSITION");
             }
             set { }
         }
 
         [XmlIgnore]
-        public IFormulaTree VariableFormula
+        public IFormulaTree PositionY
         {
             get
             {
-                // TODO: Fix in player
-                return (formulaList != null && formulaList.Length > 0) ? formulaList[0] : null;
+                return formulaList.FirstOrDefault(x => x.category == "Y_POSITION");
             }
             set { }
         }

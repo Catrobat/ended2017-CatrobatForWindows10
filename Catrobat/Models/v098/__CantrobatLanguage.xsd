@@ -499,6 +499,22 @@
     </xs:complexContent>
   </xs:complexType>
 
+  <xs:complexType name="TurnRightBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:all>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
   <xs:complexType name="NextLookBrick">
     <xs:complexContent>
       <xs:extension base="brick">

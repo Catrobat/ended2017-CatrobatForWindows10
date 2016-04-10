@@ -4,16 +4,18 @@ using System.Linq;
 
 namespace Catrobat.Models.v098
 {
-    partial class SetXBrick : ISetXBrick
+    partial class SetSizeToBrick : ISetSizeToBrick
     {
         #region NativeComponent
         [XmlIgnore]
-        public IFormulaTree PositionX
+        public IFormulaTree Scale
         {
-            get { return formulaList.FirstOrDefault(); }
+            get
+            {
+                return formulaList.FirstOrDefault();
+            }
             set { }
         }
         #endregion
-
     }
 }

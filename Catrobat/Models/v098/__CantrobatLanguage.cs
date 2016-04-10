@@ -447,6 +447,7 @@ namespace Catrobat.Models.v098 {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GoNStepsBackBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComeToFrontBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(NextLookBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TurnRightBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TurnLeftBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoopEndBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RepeatBrick))]
@@ -651,6 +652,27 @@ namespace Catrobat.Models.v098 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class NextLookBrick : brick {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class TurnRightBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
     }
     
     /// <remarks/>

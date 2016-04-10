@@ -3,30 +3,28 @@ using System.Xml.Serialization;
 
 namespace Catrobat.Models.v098
 {
-    partial class ChangeVariableBrick : IChangeVariableBrick
+    partial class PlaySoundBrick : IPlaySoundBrick
     {
         #region NativeComponent
         [XmlIgnore]
-        public IUserVariable Variable
+        public string FileName
         {
             get
             {
-                return userVariable;
+                return sound.fileName;
             }
             set { }
         }
 
         [XmlIgnore]
-        public IFormulaTree VariableFormula
+        public string Name
         {
             get
             {
-                // TODO: Fix in player
-                return (formulaList != null && formulaList.Length > 0) ? formulaList[0] : null;
+                return sound.name;
             }
             set { }
         }
         #endregion
-
     }
 }
