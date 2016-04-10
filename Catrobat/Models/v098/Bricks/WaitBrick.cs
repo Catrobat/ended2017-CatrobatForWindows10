@@ -12,7 +12,7 @@ namespace Catrobat.Models.v098
         {
             get
             {
-                return formulaList.FirstOrDefault();
+                return formulaList.FirstOrDefault(x => x.category == "TIME_TO_WAIT_IN_SECONDS");
             }
             set { }
         }

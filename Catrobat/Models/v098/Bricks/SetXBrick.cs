@@ -10,7 +10,7 @@ namespace Catrobat.Models.v098
         [XmlIgnore]
         public IFormulaTree PositionX
         {
-            get { return formulaList.FirstOrDefault(); }
+            get { return formulaList.FirstOrDefault(x => x.category == "X_POSITION"); }
             set { }
         }
         #endregion

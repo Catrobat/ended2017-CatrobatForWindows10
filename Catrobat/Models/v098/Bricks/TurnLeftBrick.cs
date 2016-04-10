@@ -12,7 +12,7 @@ namespace Catrobat.Models.v098
         {
             get
             {
-                return formulaList.FirstOrDefault();
+                return formulaList.FirstOrDefault(x => x.category == "TURN_LEFT_DEGREES");
             }
             set { }
         }
