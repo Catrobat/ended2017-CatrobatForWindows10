@@ -108,7 +108,6 @@
     <Compile Include="Models\v098\Bricks\brick.cs" />
     <Compile Include="Models\v098\BroadcastScript.cs" />
     <Compile Include="Models\v098\Bricks\ForeverBrick.cs" />
-    <Compile Include="Models\v098\ReferenceElemet.cs" />
     <Compile Include="Models\v098\sound.cs" />
     <Compile Include="Models\v098\UserVariable.cs" />
     <Compile Include="Models\v098\WhenScript.cs" />

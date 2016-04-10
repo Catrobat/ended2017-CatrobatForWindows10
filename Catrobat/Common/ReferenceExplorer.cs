@@ -41,12 +41,14 @@ namespace Catrobat.Common
                 var o = p.objectList[y];
                 for (int i = 0; i < o.lookList.Count(); i++)
                 {
-                    l1[string.Format("../../../../../lookList/look{0}", F(i))] = o.lookList[i];
+                    if (string.IsNullOrEmpty(o.lookList[i].reference))
+                        l1[string.Format("../../../../../lookList/look{0}", F(i))] = o.lookList[i];
                 }
 
                 for (int i = 0; i < o.soundList.Count(); i++)
                 {
-                    s1[string.Format("../../../../../soundList/sound{0}", F(i))] = o.soundList[i];
+                    if (string.IsNullOrEmpty(o.soundList[i].reference))
+                        s1[string.Format("../../../../../soundList/sound{0}", F(i))] = o.soundList[i];
                 }
 
                 for (int i = 0; i < o.scriptList.Count(); i++)
@@ -87,11 +89,14 @@ namespace Catrobat.Common
                         else if (b is SetLookBrick)
                         {
                             var l = b as SetLookBrick;
-                            if (l1.ContainsKey(l.look.reference))
-                            {
-                                // TODO: l.look same base or same class?
-                                //l.look = l1[l.look.reference];
-                            }
+                            if (!string.IsNullOrEmpty(l.look.reference) && l1.ContainsKey(l.look.reference))
+                                l.look = l1[l.look.reference];
+                        }
+                        else if (b is PlaySoundBrick)
+                        {
+                            var l = b as PlaySoundBrick;
+                            if (!string.IsNullOrEmpty(l.sound.reference) && s1.ContainsKey(l.sound.reference))
+                                l.sound = s1[l.sound.reference];
                         }
                     }
                 }
