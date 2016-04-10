@@ -571,4 +571,47 @@
     </xs:complexContent>
   </xs:complexType>
 
+  <xs:complexType name="MoveNStepsBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:all>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="IfOnEdgeBounceBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:all/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>  
+
+  <xs:complexType name="ShowTextBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:all>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="inUserBrick" type="xs:boolean"></xs:element>
+          <xs:element name="userVariable" type="UserVariable" />
+          <xs:element name="userVariableName" type="xs:string" />
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
 </xs:schema>

@@ -106,6 +106,9 @@
     <Compile Include="Common\ReferenceExplorer.cs" />
     <Compile Include="Common\XObjectExtensions.cs" />
     <Compile Include="Models\v098\Bricks\brick.cs" />
+    <Compile Include="Models\v098\Bricks\ChangeVariableBrick.cs" />
+    <Compile Include="Models\v098\Bricks\MoveNStepsBrick.cs" />
+    <Compile Include="Models\v098\Bricks\SetVariableBrick.cs" />
     <Compile Include="Models\v098\BroadcastScript.cs" />
     <Compile Include="Models\v098\Bricks\ForeverBrick.cs" />
     <Compile Include="Models\v098\sound.cs" />

@@ -438,6 +438,9 @@ namespace Catrobat.Models.v098 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShowTextBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IfOnEdgeBounceBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MoveNStepsBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetYBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetTransparencyBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(HideBrick))]
@@ -475,6 +478,92 @@ namespace Catrobat.Models.v098 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class brick {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ShowTextBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        private bool inUserBrickField;
+        
+        private UserVariable userVariableField;
+        
+        private string userVariableNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool inUserBrick {
+            get {
+                return this.inUserBrickField;
+            }
+            set {
+                this.inUserBrickField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public UserVariable userVariable {
+            get {
+                return this.userVariableField;
+            }
+            set {
+                this.userVariableField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string userVariableName {
+            get {
+                return this.userVariableNameField;
+            }
+            set {
+                this.userVariableNameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class IfOnEdgeBounceBrick : brick {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class MoveNStepsBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
     }
     
     /// <remarks/>
