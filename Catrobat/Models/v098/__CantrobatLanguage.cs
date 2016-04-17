@@ -438,6 +438,20 @@ namespace Catrobat.Models.v098 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReplaceItemInUserListBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InsertItemIntoUserListBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeleteItemOfUserListBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddItemToUserListBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FlashBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ClearGraphicEffectBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeBrightnessByNBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetBrightnessBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeTransparencyByNBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeSizeByNBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChooseCameraBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CameraBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VibrationBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HideTextBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShowTextBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IfOnEdgeBounceBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MoveNStepsBrick))]
@@ -453,6 +467,8 @@ namespace Catrobat.Models.v098 {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RepeatBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoopEndlessBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeYByNBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeXByNBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BroadcastWaitBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BroadcastBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IfLogicEndBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IfLogicElseBrick))]
@@ -479,6 +495,359 @@ namespace Catrobat.Models.v098 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class brick {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ReplaceItemInUserListBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class InsertItemIntoUserListBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DeleteItemOfUserListBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddItemToUserListBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FlashBrick : brick {
+        
+        private int spinnerSelectionIDField;
+        
+        private string[] spinnerValuesField;
+        
+        /// <remarks/>
+        public int spinnerSelectionID {
+            get {
+                return this.spinnerSelectionIDField;
+            }
+            set {
+                this.spinnerSelectionIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public string[] spinnerValues {
+            get {
+                return this.spinnerValuesField;
+            }
+            set {
+                this.spinnerValuesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ClearGraphicEffectBrick : brick {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ChangeBrightnessByNBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SetBrightnessBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ChangeTransparencyByNBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ChangeSizeByNBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ChooseCameraBrick : brick {
+        
+        private int spinnerSelectionIDField;
+        
+        private string[] spinnerValuesField;
+        
+        /// <remarks/>
+        public int spinnerSelectionID {
+            get {
+                return this.spinnerSelectionIDField;
+            }
+            set {
+                this.spinnerSelectionIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public string[] spinnerValues {
+            get {
+                return this.spinnerValuesField;
+            }
+            set {
+                this.spinnerValuesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CameraBrick : brick {
+        
+        private int spinnerSelectionIDField;
+        
+        private string[] spinnerValuesField;
+        
+        /// <remarks/>
+        public int spinnerSelectionID {
+            get {
+                return this.spinnerSelectionIDField;
+            }
+            set {
+                this.spinnerSelectionIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public string[] spinnerValues {
+            get {
+                return this.spinnerValuesField;
+            }
+            set {
+                this.spinnerValuesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class VibrationBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class HideTextBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        private bool inUserBrickField;
+        
+        private UserVariable userVariableField;
+        
+        private string userVariableNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool inUserBrick {
+            get {
+                return this.inUserBrickField;
+            }
+            set {
+                this.inUserBrickField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public UserVariable userVariable {
+            get {
+                return this.userVariableField;
+            }
+            set {
+                this.userVariableField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string userVariableName {
+            get {
+                return this.userVariableNameField;
+            }
+            set {
+                this.userVariableNameField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -750,6 +1119,47 @@ namespace Catrobat.Models.v098 {
             }
             set {
                 this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ChangeXByNBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class BroadcastWaitBrick : brick {
+        
+        private string broadcastMessageField;
+        
+        /// <remarks/>
+        public string broadcastMessage {
+            get {
+                return this.broadcastMessageField;
+            }
+            set {
+                this.broadcastMessageField = value;
             }
         }
     }
@@ -1332,6 +1742,8 @@ namespace Catrobat.Models.v098 {
         
         private string nameField;
         
+        private string referenceField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
         public look[] lookList {
@@ -1383,6 +1795,17 @@ namespace Catrobat.Models.v098 {
             }
             set {
                 this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string reference {
+            get {
+                return this.referenceField;
+            }
+            set {
+                this.referenceField = value;
             }
         }
     }

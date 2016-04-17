@@ -61,7 +61,11 @@ namespace Catrobat.Common
                         if (b is VariableBrick)
                         {
                             var v = b as VariableBrick;
-                            if (string.IsNullOrEmpty(v.userVariable.reference))
+                            if(v.userVariable == null)
+                            {
+                                // A VariableBrick without a variable is useless. 
+                            }
+                            else if (string.IsNullOrEmpty(v.userVariable.reference))
                             {
                                 v0[string.Format("../../../../../../object{0}/scriptList/script{1}/brickList/brick{2}/userVariable",
                                     F(y), F(i), F(j))] = v.userVariable;
