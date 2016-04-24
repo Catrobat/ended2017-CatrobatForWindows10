@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace Catrobat.Models.v098
 {
-    partial class PointInDirectionBrick
+    partial class PointInDirectionBrick : IPointToBrick
     {
         #region NativeComponent
         [XmlIgnore]
-        public IFormulaTree VariableFormula
+        public IFormulaTree Rotation
         {
             get
             {

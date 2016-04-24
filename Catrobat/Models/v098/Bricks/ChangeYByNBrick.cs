@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace Catrobat.Models.v098
 {
-    partial class ChangeYByNBrick
+    partial class ChangeYByNBrick : IChangeYByBrick
     {
         #region NativeComponent
         [XmlIgnore]
-        public IFormulaTree VariableFormula
+        public IFormulaTree OffsetY
         {
             get
             {

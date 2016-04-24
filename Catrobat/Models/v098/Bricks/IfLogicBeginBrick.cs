@@ -4,11 +4,11 @@ using System.Xml.Serialization;
 
 namespace Catrobat.Models.v098
 {
-    partial class IfLogicBeginBrick
+    partial class IfLogicBeginBrick : IIfBrick
     {
         #region NativeComponent
         [XmlIgnore]
-        public IFormulaTree VariableFormula
+        public IFormulaTree Condition
         {
             get
             {

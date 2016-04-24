@@ -1,14 +1,15 @@
 ﻿using Catrobat_Player.NativeComponent;
 using System.Linq;
 using System.Xml.Serialization;
+using System;
 
 namespace Catrobat.Models.v098
 {
-    partial class GlideToBrick
+    partial class GlideToBrick : IGLideToBrick
     {
         #region NativeComponent
         [XmlIgnore]
-        public IFormulaTree X
+        public IFormulaTree DestinationX
         {
             get
             {
@@ -18,7 +19,7 @@ namespace Catrobat.Models.v098
         }
 
         [XmlIgnore]
-        public IFormulaTree Y
+        public IFormulaTree DestinationY
         {
             get
             {
