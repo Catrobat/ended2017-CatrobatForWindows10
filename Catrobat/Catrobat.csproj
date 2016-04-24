@@ -226,7 +226,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CatrobatForWindows\Source\WindowsUnified\Catrobat.8.1\Catrobat\Catrobat.Player\Catrobat.Player.WindowsPhone\Catrobat.Player.WindowsPhone.vcxproj">
       <Project>{54144ca7-b859-4f79-b682-dad92b4e3353}</Project>

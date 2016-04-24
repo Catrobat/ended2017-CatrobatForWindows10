@@ -45,12 +45,12 @@ namespace Catrobat.Models
             get
             {
                 if (_program != null) return _program;
-
                 string path = string.Format("{0}\\code.xml", _storagePath);
-                using (System.IO.FileStream f = new System.IO.FileStream(path, System.IO.FileMode.Open))
+                try
                 {
-                    try
+                    using (FileStream f = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.Read))
                     {
+
 #if NAMESPACE_MISSING_IN_XML
                         // From: http://stackoverflow.com/questions/36138915/xml-namespace-missing-for-parser/36140318#36140318
 
@@ -81,11 +81,11 @@ namespace Catrobat.Models
                         _program = xsSubmit.Deserialize(f) as program;
 #endif
                     }
-                    catch (Exception ex)
-                    {
-                        // TODO: Remove this!!!
-                        (new Windows.UI.Popups.MessageDialog(string.Format("{0}\n{1}", path, ex.Message))).ShowAsync();
-                    }
+                }
+                catch (Exception ex)
+                {
+                    // TODO: Remove this!!!
+                    (new Windows.UI.Popups.MessageDialog(string.Format("{0}\n{1}", path, ex.Message))).ShowAsync();
                 }
                 return _program;
             }
