@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Catrobat_Player.NativeComponent;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Catrobat.Models.v098
 {
     partial class ChangeSizeByNBrick
     {
+        #region NativeComponent
+        [XmlIgnore]
+        public IFormulaTree ChangeSize
+        {
+            get
+            {
+                return formulaList.FirstOrDefault(x => x.category == "SIZE_CHANGE");
+            }
+            set { }
+        }
+        #endregion
+
     }
 }

@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Catrobat_Player.NativeComponent;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Catrobat.Models.v098
 {
     partial class AddItemToUserListBrick
     {
+        #region NativeComponent
+        [XmlIgnore]
+        public IFormulaTree VariableFormula
+        {
+            get
+            {
+                return formulaList.FirstOrDefault(x => x.category == "LIST_ADD_ITEM");
+            }
+            set { }
+        }
+        #endregion
+
     }
 }

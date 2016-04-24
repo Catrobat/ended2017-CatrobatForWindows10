@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Catrobat_Player.NativeComponent;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Catrobat.Models.v098
 {
     partial class GoNStepsBackBrick
     {
+        #region NativeComponent
+        [XmlIgnore]
+        public IFormulaTree Steps
+        {
+            get
+            {
+                return formulaList.FirstOrDefault(x => x.category == "STEPS");
+            }
+            set { }
+        }
+        #endregion
     }
 }
