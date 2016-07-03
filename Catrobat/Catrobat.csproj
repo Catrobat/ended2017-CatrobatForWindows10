@@ -232,7 +232,7 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Catrobat.Player\Catrobat.Player.WindowsPhone\Catrobat.Player.WindowsPhone.vcxproj">
+    <ProjectReference Include="..\Submodules\CatrobatForWindows\Source\Catrobat\Catrobat.Player\Catrobat.Player.WindowsPhone\Catrobat.Player.WindowsPhone.vcxproj">
       <Project>{54144ca7-b859-4f79-b682-dad92b4e3353}</Project>
       <Name>Catrobat.Player.WindowsPhone</Name>
     </ProjectReference>

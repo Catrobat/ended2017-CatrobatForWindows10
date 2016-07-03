@@ -1,0 +1,3 @@
+[submodule "Submodules/CatrobatForWindows"]
+	path = Submodules/CatrobatForWindows
+	url = https://github.com/diego2k/CatrobatForWindows.git
