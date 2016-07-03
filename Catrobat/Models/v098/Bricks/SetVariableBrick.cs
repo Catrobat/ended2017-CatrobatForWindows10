@@ -1,5 +1,4 @@
-﻿using System;
-using Catrobat_Player.NativeComponent;
+﻿using Catrobat_Player.NativeComponent;
 using System.Xml.Serialization;
 using System.Linq;
 

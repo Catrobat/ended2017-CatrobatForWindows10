@@ -105,21 +105,55 @@
     <Compile Include="Common\Fake.cs" />
     <Compile Include="Common\ReferenceExplorer.cs" />
     <Compile Include="Common\XObjectExtensions.cs" />
+    <Compile Include="Models\v098\Bricks\AddItemToUserListBrick.cs" />
     <Compile Include="Models\v098\Bricks\brick.cs" />
     <Compile Include="Models\v098\Bricks\BroadcastBrick.cs" />
+    <Compile Include="Models\v098\Bricks\BroadcastWaitBrick.cs" />
+    <Compile Include="Models\v098\Bricks\CameraBrick.cs" />
+    <Compile Include="Models\v098\Bricks\ChangeBrightnessByNBrick.cs" />
+    <Compile Include="Models\v098\Bricks\ChangeSizeByNBrick.cs" />
+    <Compile Include="Models\v098\Bricks\ChangeTransparencyByNBrick.cs" />
     <Compile Include="Models\v098\Bricks\ChangeVariableBrick.cs" />
+    <Compile Include="Models\v098\Bricks\ChangeVolumeByNBrick.cs" />
+    <Compile Include="Models\v098\Bricks\ChangeXByNBrick.cs" />
+    <Compile Include="Models\v098\Bricks\ChangeYByNBrick.cs" />
+    <Compile Include="Models\v098\Bricks\ChooseCameraBrick.cs" />
+    <Compile Include="Models\v098\Bricks\ClearGraphicEffectBrick.cs" />
+    <Compile Include="Models\v098\Bricks\ComeToFrontBrick.cs" />
+    <Compile Include="Models\v098\Bricks\DeleteItemOfUserListBrick.cs" />
+    <Compile Include="Models\v098\Bricks\FlashBrick.cs" />
+    <Compile Include="Models\v098\Bricks\GlideToBrick.cs" />
+    <Compile Include="Models\v098\Bricks\GoNStepsBackBrick.cs" />
     <Compile Include="Models\v098\Bricks\HideBrick.cs" />
+    <Compile Include="Models\v098\Bricks\HideTextBrick.cs" />
+    <Compile Include="Models\v098\Bricks\IfLogicBeginBrick.cs" />
+    <Compile Include="Models\v098\Bricks\IfLogicElseBrick.cs" />
+    <Compile Include="Models\v098\Bricks\IfLogicEndBrick.cs" />
+    <Compile Include="Models\v098\Bricks\IfOnEdgeBounceBrick.cs" />
+    <Compile Include="Models\v098\Bricks\InsertItemIntoUserListBrick.cs" />
+    <Compile Include="Models\v098\Bricks\LoopEndBrick.cs" />
+    <Compile Include="Models\v098\Bricks\LoopEndlessBrick.cs" />
     <Compile Include="Models\v098\Bricks\MoveNStepsBrick.cs" />
     <Compile Include="Models\v098\Bricks\NextLookBrick.cs" />
+    <Compile Include="Models\v098\Bricks\NoteBrick.cs" />
     <Compile Include="Models\v098\Bricks\PlaceAtBrick.cs" />
     <Compile Include="Models\v098\Bricks\PlaySoundBrick.cs" />
+    <Compile Include="Models\v098\Bricks\PointInDirectionBrick.cs" />
     <Compile Include="Models\v098\Bricks\RepeatBrick.cs" />
+    <Compile Include="Models\v098\Bricks\ReplaceItemInUserListBrick.cs" />
+    <Compile Include="Models\v098\Bricks\SetBrightnessBrick.cs" />
     <Compile Include="Models\v098\Bricks\SetSizeToBrick.cs" />
+    <Compile Include="Models\v098\Bricks\SetTransparencyBrick.cs" />
     <Compile Include="Models\v098\Bricks\SetVariableBrick.cs" />
+    <Compile Include="Models\v098\Bricks\SetVolumeToBrick.cs" />
     <Compile Include="Models\v098\Bricks\SetYBrick.cs" />
     <Compile Include="Models\v098\Bricks\ShowBrick.cs" />
+    <Compile Include="Models\v098\Bricks\ShowTextBrick.cs" />
+    <Compile Include="Models\v098\Bricks\StopAllSoundsBrick.cs" />
     <Compile Include="Models\v098\Bricks\TurnLeftBrick.cs" />
     <Compile Include="Models\v098\Bricks\TurnRightBrick.cs" />
+    <Compile Include="Models\v098\Bricks\VariableBrick.cs" />
+    <Compile Include="Models\v098\Bricks\VibrationBrick.cs" />
     <Compile Include="Models\v098\Bricks\WaitBrick.cs" />
     <Compile Include="Models\v098\BroadcastScript.cs" />
     <Compile Include="Models\v098\Bricks\ForeverBrick.cs" />
@@ -192,17 +226,16 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\CatrobatForWindows\Source\WindowsUnified\Catrobat.8.1\Catrobat\Catrobat.Player\Catrobat.Player.WindowsPhone\Catrobat.Player.WindowsPhone.vcxproj">
-      <Project>{54144ca7-b859-4f79-b682-dad92b4e3353}</Project>
-      <Name>Catrobat.Player.WindowsPhone</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>Behaviors SDK %28XAML%29</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Catrobat.Player\Catrobat.Player.WindowsPhone\Catrobat.Player.WindowsPhone.vcxproj">
+      <Project>{54144ca7-b859-4f79-b682-dad92b4e3353}</Project>
+      <Name>Catrobat.Player.WindowsPhone</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
