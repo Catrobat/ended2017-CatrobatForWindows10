@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 
 namespace Catrobat.Models.v098
 {
-    partial class VibrationBrick
+    partial class VibrationBrick : IVibrationBrick
     {
         #region NativeComponent
         [XmlIgnore]
