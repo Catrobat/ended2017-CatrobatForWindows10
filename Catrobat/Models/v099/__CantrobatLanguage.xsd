@@ -169,7 +169,9 @@
   </xs:complexType>
 
   <!-- Brick definition -->
-  <xs:complexType name="brick" />
+  <xs:complexType name="brick" >
+    <xs:attribute name="reference" type="xs:string"/>
+  </xs:complexType>
 
   <xs:complexType name="ForeverBrick">
     <xs:complexContent>

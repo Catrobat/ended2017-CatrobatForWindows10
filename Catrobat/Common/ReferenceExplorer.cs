@@ -31,18 +31,26 @@ namespace Catrobat.Common
         public static program LoadReferences(program p)
         {
             Dictionary<string, UserVariable> v0 = new Dictionary<string, UserVariable>();
+            Dictionary<string, brick> b0 = new Dictionary<string, brick>();
+            Dictionary<string, look> l0 = new Dictionary<string, look>();
 
             for (int y = 0; y < p.objectList.Count(); y++)
             {
                 Dictionary<string, look> l1 = new Dictionary<string, look>();
                 Dictionary<string, sound> s1 = new Dictionary<string, sound>();
                 Dictionary<string, UserVariable> v1 = new Dictionary<string, UserVariable>();
+                Dictionary<string, brick> b1 = new Dictionary<string, brick>();
 
                 var o = p.objectList[y];
                 for (int i = 0; i < o.lookList.Count(); i++)
                 {
                     if (string.IsNullOrEmpty(o.lookList[i].reference))
+                    {
+                        l0[string.Format("../../../object{0}/lookList/look{1}", F(y), F(i))] = o.lookList[i];
                         l1[string.Format("../../../../../lookList/look{0}", F(i))] = o.lookList[i];
+                    }
+                    else
+                        o.lookList[i] = l0[o.lookList[i].reference];
                 }
 
                 for (int i = 0; i < o.soundList.Count(); i++)
@@ -54,14 +62,16 @@ namespace Catrobat.Common
                 for (int i = 0; i < o.scriptList.Count(); i++)
                 {
                     Dictionary<string, UserVariable> v2 = new Dictionary<string, UserVariable>();
+                    Dictionary<string, brick> b2 = new Dictionary<string, brick>();
                     var s = o.scriptList[i];
                     for (int j = 0; j < s.brickList.Count(); j++)
                     {
                         var b = s.brickList[j];
+
                         if (b is VariableBrick)
                         {
                             var v = b as VariableBrick;
-                            if(v.userVariable == null)
+                            if (v.userVariable == null)
                             {
                                 // A VariableBrick without a variable is useless. 
                             }
@@ -101,6 +111,33 @@ namespace Catrobat.Common
                             var l = b as PlaySoundBrick;
                             if (!string.IsNullOrEmpty(l.sound.reference) && s1.ContainsKey(l.sound.reference))
                                 l.sound = s1[l.sound.reference];
+                        }
+                        else if (b is brick)
+                        {
+                            if (string.IsNullOrEmpty(b.reference))
+                            {
+                                b0[string.Format("../../../../../object{0}/scriptList/script{1}/brickList/brick{2}",
+                                    F(y), F(i), F(j))] = b;
+                                b1[string.Format("../../../script{0}/brickList/brick{1}",
+                                    F(i), F(j))] = b;
+                                b2[string.Format("../brick{0}",
+                                    F(j))] = b;
+                            }
+                            else
+                            {
+                                if (b2.ContainsKey(b.reference))
+                                {
+                                    s.brickList[j] = b2[b.reference];
+                                }
+                                else if (b1.ContainsKey(b.reference))
+                                {
+                                    s.brickList[j] = b1[b.reference];
+                                }
+                                else if (b0.ContainsKey(b.reference))
+                                {
+                                    s.brickList[j] = b0[b.reference];
+                                }
+                            }
                         }
                     }
                 }
