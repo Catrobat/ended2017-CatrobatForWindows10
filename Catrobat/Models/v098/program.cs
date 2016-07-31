@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 
-namespace Catrobat.Models.v098
+namespace Catrobat.Models.v099
 {
     partial class program : IProject
     {

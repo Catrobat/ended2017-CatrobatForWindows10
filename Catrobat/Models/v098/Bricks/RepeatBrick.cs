@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 using System.Linq;
 
-namespace Catrobat.Models.v098
+namespace Catrobat.Models.v099
 {
     partial class RepeatBrick : IRepeatBrick
     {

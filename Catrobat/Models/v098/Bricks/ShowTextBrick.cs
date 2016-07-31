@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Catrobat.Models.v098
+namespace Catrobat.Models.v099
 {
     partial class ShowTextBrick
     {

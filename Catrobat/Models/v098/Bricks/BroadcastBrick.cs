@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 using System;
 
-namespace Catrobat.Models.v098
+namespace Catrobat.Models.v099
 {
     partial class BroadcastBrick : IBroadcastBrick
     {

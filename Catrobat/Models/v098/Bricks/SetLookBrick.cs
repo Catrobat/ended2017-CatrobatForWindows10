@@ -1,6 +1,6 @@
 ﻿using Catrobat_Player.NativeComponent;
 
-namespace Catrobat.Models.v098
+namespace Catrobat.Models.v099
 {
     partial class SetLookBrick
     {
