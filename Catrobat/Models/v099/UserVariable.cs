@@ -12,7 +12,7 @@ namespace Catrobat.Models.v099
         {
             get
             {
-                return Value;
+                return Value ?? string.Empty;
             }
             set { }
         }

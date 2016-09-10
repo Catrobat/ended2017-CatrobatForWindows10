@@ -10,14 +10,14 @@ namespace Catrobat.Models.v099
         [XmlIgnore]
         public string FileName
         {
-            get { return fileName; }
+            get { return fileName ?? string.Empty; }
             set { }
         }
 
         [XmlIgnore]
         public string Name
         {
-            get { return name; }
+            get { return name ?? string.Empty; }
             set { }
         }
 
