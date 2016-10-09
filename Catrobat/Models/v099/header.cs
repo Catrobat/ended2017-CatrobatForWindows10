@@ -7,43 +7,43 @@ namespace Catrobat.Models.v099
     {
         #region NativeComponent
         [XmlIgnore]
-        public string ApplicationBuildName { get { return this.applicationBuildName; } set { } }
+        public string ApplicationBuildName { get { return this.applicationBuildName ?? string.Empty; } set { } }
 
         [XmlIgnore]
         public int ApplicationBuildNumber { get { return this.applicationBuildNumber; } set { } }
 
         [XmlIgnore]
-        public string ApplicationName { get { return this.applicationName; } set { } }
+        public string ApplicationName { get { return this.applicationName ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string ApplicationVersion { get { return this.applicationVersion; } set { } }
+        public string ApplicationVersion { get { return this.applicationVersion ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string CatrobatLanguageVersion { get { return this.catrobatLanguageVersion; } set { } }
+        public string CatrobatLanguageVersion { get { return this.catrobatLanguageVersion ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string DateTimeUpload { get { return this.dateTimeUpload; } set { } }
+        public string DateTimeUpload { get { return this.dateTimeUpload ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string Description { get { return this.description; } set { } }
+        public string Description { get { return this.description ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string DeviceName { get { return this.deviceName; } set { } }
+        public string DeviceName { get { return this.deviceName ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string MediaLicense { get { return this.mediaLicense; } set { } }
+        public string MediaLicense { get { return this.mediaLicense ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string PlatformVersion { get { return this.platformVersion; } set { } }
+        public string PlatformVersion { get { return this.platformVersion ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string ProgramLicense { get { return this.programLicense; } set { } }
+        public string ProgramLicense { get { return this.programLicense ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string ProgramName { get { return this.programName; } set { } }
+        public string ProgramName { get { return this.programName ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string RemixOf { get { return this.remixOf; } set { } }
+        public string RemixOf { get { return this.remixOf ?? string.Empty; } set { } }
 
         [XmlIgnore]
         public int ScreenHeight { get { return this.screenHeight; } set { } }
@@ -52,16 +52,16 @@ namespace Catrobat.Models.v099
         public int ScreenWidth { get { return this.screenWidth; } set { } }
 
         [XmlIgnore]
-        public string Tags { get { return this.tags; } set { } }
+        public string Tags { get { return this.tags ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string TargetPlatform { get { return this.platform; } set { } }
+        public string TargetPlatform { get { return this.platform ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string Url { get { return this.url; } set { } }
+        public string Url { get { return this.url ?? string.Empty; } set { } }
 
         [XmlIgnore]
-        public string UserHandle { get { return this.userHandle; } set { } }
+        public string UserHandle { get { return this.userHandle ?? string.Empty; } set { } }
         #endregion
 
     }

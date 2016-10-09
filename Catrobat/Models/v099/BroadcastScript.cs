@@ -24,7 +24,7 @@ namespace Catrobat.Models.v099
         {
             get
             {
-                return receivedMessage;
+                return receivedMessage ?? string.Empty;
             }
             set { }
         }

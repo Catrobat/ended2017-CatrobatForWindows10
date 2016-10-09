@@ -18,7 +18,7 @@ namespace Catrobat.Models.v099
         [XmlIgnore]
         public string Name
         {
-            get { return this.name; }
+            get { return this.name ?? string.Empty; }
             set { }
         }
 
