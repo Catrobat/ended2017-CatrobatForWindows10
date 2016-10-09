@@ -14,7 +14,7 @@ namespace Catrobat.Models.v099
         {
             get
             {
-                return action;
+                return action ?? string.Empty;
             }
             set { }
         }
