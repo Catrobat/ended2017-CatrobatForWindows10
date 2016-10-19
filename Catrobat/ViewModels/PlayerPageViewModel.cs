@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Catrobat_Player;
 using Windows.UI.Xaml.Controls;
 using Catrobat.Models;
+using Catrobat_Player.NativeComponent;
 
 namespace Catrobat.ViewModels
 {
@@ -13,6 +14,7 @@ namespace Catrobat.ViewModels
         #region Private fields
         private IRepository<CatrobatProgram> _catrobatProgramRepo;
         private INavigationService _navService;
+        private Catrobat_PlayerAdapter _playerObject;
 
         #endregion
 
@@ -35,13 +37,14 @@ namespace Catrobat.ViewModels
         {
             base.OnNavigatedTo(e, viewModelState);
             var p = _catrobatProgramRepo.Get(e.Parameter as string);
-            Catrobat_Player.NativeComponent.NativeWrapper.SetProject(p.Program);
-            Catrobat_PlayerAdapter playerObject = new Catrobat_PlayerAdapter();
-            playerObject.InitPlayer(Page, p.Id);
+            NativeWrapper.SetProject(p.Program);
+            _playerObject = new Catrobat_PlayerAdapter();
+            _playerObject.InitPlayer(Page, p.Id);
         }
 
         public override void OnNavigatingFrom(NavigatingFromEventArgs e, Dictionary<string, object> viewModelState, bool suspending)
         {
+            _playerObject.Dispose();
             base.OnNavigatingFrom(e, viewModelState, suspending);
         }
 
