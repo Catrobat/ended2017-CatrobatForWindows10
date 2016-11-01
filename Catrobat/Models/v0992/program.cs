@@ -15,7 +15,7 @@ namespace Catrobat.Models.v0992
         [XmlIgnore]
         public IList<IObject> Objects
         {
-            get { return objectList.Cast<IObject>().ToList(); }
+            get { return scenes.First().objectList.Cast<IObject>().ToList(); } // TODO: We just support one scene
             set { }
         }
 
@@ -25,7 +25,7 @@ namespace Catrobat.Models.v0992
             get
             {
                 List<IUserVariable> result = new List<IUserVariable>();
-                foreach (@object o in objectList)
+                foreach (@object o in scenes.First().objectList) // TODO: We just support one scene
                 {
                     result.AddRange(o.UserVariables);
                 }

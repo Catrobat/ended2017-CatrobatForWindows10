@@ -26,9 +26,9 @@ namespace Catrobat.Models.v0992 {
         
         private header headerField;
         
-        private @object[] objectListField;
+        private scene[] scenesField;
         
-        private programData dataField;
+        private UserVariable[] programVariableListField;
         
         private object settingsField;
         
@@ -44,22 +44,23 @@ namespace Catrobat.Models.v0992 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public @object[] objectList {
+        public scene[] scenes {
             get {
-                return this.objectListField;
+                return this.scenesField;
             }
             set {
-                this.objectListField = value;
+                this.scenesField = value;
             }
         }
         
         /// <remarks/>
-        public programData data {
+        [System.Xml.Serialization.XmlArrayItemAttribute("userVariable", IsNullable=false)]
+        public UserVariable[] programVariableList {
             get {
-                return this.dataField;
+                return this.programVariableListField;
             }
             set {
-                this.dataField = value;
+                this.programVariableListField = value;
             }
         }
         
@@ -1849,16 +1850,81 @@ namespace Catrobat.Models.v0992 {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class scene {
+        
+        private string nameField;
+        
+        private @object[] objectListField;
+        
+        private sceneData dataField;
+        
+        private int originalWidthField;
+        
+        private int originalHeightField;
+        
+        /// <remarks/>
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public @object[] objectList {
+            get {
+                return this.objectListField;
+            }
+            set {
+                this.objectListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public sceneData data {
+            get {
+                return this.dataField;
+            }
+            set {
+                this.dataField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int originalWidth {
+            get {
+                return this.originalWidthField;
+            }
+            set {
+                this.originalWidthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int originalHeight {
+            get {
+                return this.originalHeightField;
+            }
+            set {
+                this.originalHeightField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public partial class programData {
+    public partial class sceneData {
         
         private object objectListOfListField;
         
         private object objectVariableListField;
-        
-        private object programListOfListsField;
-        
-        private object programVariableListField;
         
         private object userBrickVariableListField;
         
@@ -1879,26 +1945,6 @@ namespace Catrobat.Models.v0992 {
             }
             set {
                 this.objectVariableListField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public object programListOfLists {
-            get {
-                return this.programListOfListsField;
-            }
-            set {
-                this.programListOfListsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public object programVariableList {
-            get {
-                return this.programVariableListField;
-            }
-            set {
-                this.programVariableListField = value;
             }
         }
         

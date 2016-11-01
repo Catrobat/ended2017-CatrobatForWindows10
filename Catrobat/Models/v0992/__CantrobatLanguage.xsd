@@ -6,21 +6,17 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element name="header" type="header"/>
-        <xs:element name="objectList">
+        <xs:element name="scenes">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="object" type="object" maxOccurs="unbounded"/>
+              <xs:element name="scene" type="scene" maxOccurs="unbounded"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="data">
+        <xs:element name="programVariableList">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="objectListOfList"></xs:element>
-              <xs:element name="objectVariableList"></xs:element>
-              <xs:element name="programListOfLists"></xs:element>
-              <xs:element name="programVariableList"></xs:element>
-              <xs:element name="userBrickVariableList"></xs:element>
+              <xs:element name="userVariable" type="UserVariable" maxOccurs="unbounded" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -93,6 +89,31 @@
       <xs:element name="name" type="xs:string"></xs:element>
     </xs:sequence>
     <xs:attribute name="reference" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- Scene definition -->
+  <xs:complexType name="scene">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="objectList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="object" type="object" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="data">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="objectListOfList"></xs:element>
+            <xs:element name="objectVariableList"></xs:element>
+            <xs:element name="userBrickVariableList"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="originalWidth" type="xs:int"/>
+      <xs:element name="originalHeight" type="xs:int"/>
+    </xs:sequence>
   </xs:complexType>
 
   <!-- Object definition -->

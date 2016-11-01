@@ -34,14 +34,14 @@ namespace Catrobat.Common
             Dictionary<string, brick> b0 = new Dictionary<string, brick>();
             Dictionary<string, look> l0 = new Dictionary<string, look>();
 
-            for (int y = 0; y < p.objectList.Count(); y++)
+            for (int y = 0; y < p.scenes.First().objectList.Count(); y++) // TODO: We just support one scene
             {
                 Dictionary<string, look> l1 = new Dictionary<string, look>();
                 Dictionary<string, sound> s1 = new Dictionary<string, sound>();
                 Dictionary<string, UserVariable> v1 = new Dictionary<string, UserVariable>();
                 Dictionary<string, brick> b1 = new Dictionary<string, brick>();
 
-                var o = p.objectList[y];
+                var o = p.scenes.First().objectList[y]; // TODO: We just support one scene
                 for (int i = 0; i < o.lookList.Count(); i++)
                 {
                     if (string.IsNullOrEmpty(o.lookList[i].reference))
