@@ -439,6 +439,13 @@ namespace Catrobat.Models.v0992 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TurnRightSpeedBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TurnLeftSpeedBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetVelocityBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetFrictionBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetPhysicsObjectTypeBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IfThenLogicEndBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IfThenLogicBeginBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpeakBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReplaceItemInUserListBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(InsertItemIntoUserListBrick))]
@@ -498,7 +505,19 @@ namespace Catrobat.Models.v0992 {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class brick {
         
+        private bool commentedOutField;
+        
         private string referenceField;
+        
+        /// <remarks/>
+        public bool commentedOut {
+            get {
+                return this.commentedOutField;
+            }
+            set {
+                this.commentedOutField = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -508,6 +527,152 @@ namespace Catrobat.Models.v0992 {
             }
             set {
                 this.referenceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class TurnRightSpeedBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class TurnLeftSpeedBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SetVelocityBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SetFrictionBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SetPhysicsObjectTypeBrick : brick {
+        
+        private string typeField;
+        
+        /// <remarks/>
+        public string type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class IfThenLogicEndBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class IfThenLogicBeginBrick : brick {
+        
+        private formula[] formulaListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public formula[] formulaList {
+            get {
+                return this.formulaListField;
+            }
+            set {
+                this.formulaListField = value;
             }
         }
     }
@@ -1688,6 +1853,8 @@ namespace Catrobat.Models.v0992 {
         
         private brick[] brickListField;
         
+        private bool commentedOutField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
         public brick[] brickList {
@@ -1696,6 +1863,16 @@ namespace Catrobat.Models.v0992 {
             }
             set {
                 this.brickListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool commentedOut {
+            get {
+                return this.commentedOutField;
+            }
+            set {
+                this.commentedOutField = value;
             }
         }
     }
@@ -1761,6 +1938,7 @@ namespace Catrobat.Models.v0992 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SingleSprite))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1843,6 +2021,14 @@ namespace Catrobat.Models.v0992 {
                 this.referenceField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SingleSprite : @object {
     }
     
     /// <remarks/>

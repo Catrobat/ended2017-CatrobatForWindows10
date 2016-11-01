@@ -146,6 +146,15 @@
     <xs:attribute name="reference" type="xs:string"/>
   </xs:complexType>
 
+  <xs:complexType name="SingleSprite">
+    <xs:complexContent>
+      <xs:extension base="object">
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
   <!-- Script definition -->
   <xs:complexType name="script">
     <xs:sequence>
@@ -156,6 +165,7 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="commentedOut" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -191,13 +201,16 @@
 
   <!-- Brick definition -->
   <xs:complexType name="brick" >
+    <xs:sequence>
+      <xs:element name="commentedOut" type="xs:boolean"/>
+    </xs:sequence>
     <xs:attribute name="reference" type="xs:string"/>
   </xs:complexType>
 
   <xs:complexType name="ForeverBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -205,7 +218,7 @@
   <xs:complexType name="SetXBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -214,7 +227,7 @@
             </xs:complexType>
           </xs:element>
           <xs:element name="isUserScript" type="xs:boolean"></xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -222,9 +235,9 @@
   <xs:complexType name="SetLookBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="look" type="look" />
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -232,9 +245,9 @@
   <xs:complexType name="PlaySoundBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="sound" type="sound" />
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -242,7 +255,7 @@
   <xs:complexType name="SetVolumeToBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -250,7 +263,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -258,7 +271,7 @@
   <xs:complexType name="ChangeVolumeByNBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -266,7 +279,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -274,7 +287,7 @@
   <xs:complexType name="NoteBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -282,7 +295,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -290,7 +303,7 @@
   <xs:complexType name="SetSizeToBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -298,7 +311,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -306,7 +319,7 @@
   <xs:complexType name="PlaceAtBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -314,7 +327,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -322,7 +335,7 @@
   <xs:complexType name="VariableBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -332,7 +345,7 @@
           </xs:element>
           <xs:element name="inUserBrick" type="xs:boolean"></xs:element>
           <xs:element name="userVariable" type="UserVariable" />
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -340,7 +353,7 @@
   <xs:complexType name="SetVariableBrick">
     <xs:complexContent>
       <xs:extension base="VariableBrick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -348,7 +361,7 @@
   <xs:complexType name="ChangeVariableBrick">
     <xs:complexContent>
       <xs:extension base="VariableBrick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -356,7 +369,7 @@
   <xs:complexType name="ShowBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -364,7 +377,7 @@
   <xs:complexType name="WaitBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -372,7 +385,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -380,7 +393,7 @@
   <xs:complexType name="IfLogicBeginBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -388,7 +401,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -396,7 +409,7 @@
   <xs:complexType name="PointInDirectionBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -404,7 +417,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -412,7 +425,7 @@
   <xs:complexType name="GlideToBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -420,7 +433,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -428,7 +441,7 @@
   <xs:complexType name="StopAllSoundsBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -436,7 +449,7 @@
   <xs:complexType name="IfLogicElseBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -444,7 +457,7 @@
   <xs:complexType name="IfLogicEndBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -452,9 +465,9 @@
   <xs:complexType name="BroadcastBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="broadcastMessage" type="xs:string"></xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -462,9 +475,9 @@
   <xs:complexType name="BroadcastWaitBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="broadcastMessage" type="xs:string"></xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -472,7 +485,7 @@
   <xs:complexType name="ChangeXByNBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -480,7 +493,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -488,7 +501,7 @@
   <xs:complexType name="ChangeYByNBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -496,7 +509,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -504,7 +517,7 @@
   <xs:complexType name="LoopEndlessBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -512,7 +525,7 @@
   <xs:complexType name="RepeatBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -520,7 +533,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -528,7 +541,7 @@
   <xs:complexType name="LoopEndBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -536,7 +549,7 @@
   <xs:complexType name="TurnLeftBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -544,7 +557,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -552,7 +565,7 @@
   <xs:complexType name="TurnRightBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -560,7 +573,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -568,7 +581,7 @@
   <xs:complexType name="NextLookBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -576,7 +589,7 @@
   <xs:complexType name="ComeToFrontBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -584,7 +597,7 @@
   <xs:complexType name="GoNStepsBackBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -592,7 +605,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -600,7 +613,7 @@
   <xs:complexType name="HideBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -608,7 +621,7 @@
   <xs:complexType name="SetTransparencyBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -616,7 +629,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -624,7 +637,7 @@
   <xs:complexType name="SetYBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -632,7 +645,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -640,7 +653,7 @@
   <xs:complexType name="MoveNStepsBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -648,7 +661,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -656,7 +669,7 @@
   <xs:complexType name="IfOnEdgeBounceBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -664,7 +677,7 @@
   <xs:complexType name="ShowTextBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -675,7 +688,7 @@
           <xs:element name="inUserBrick" type="xs:boolean"></xs:element>
           <xs:element name="userVariable" type="UserVariable" />
           <xs:element name="userVariableName" type="xs:string" />
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -683,7 +696,7 @@
   <xs:complexType name="HideTextBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -694,7 +707,7 @@
           <xs:element name="inUserBrick" type="xs:boolean"></xs:element>
           <xs:element name="userVariable" type="UserVariable" />
           <xs:element name="userVariableName" type="xs:string" />
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -702,7 +715,7 @@
   <xs:complexType name="VibrationBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -710,7 +723,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -718,7 +731,7 @@
   <xs:complexType name="CameraBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="spinnerSelectionID" type="xs:int"></xs:element>
           <xs:element name="spinnerValues">
             <xs:complexType>
@@ -727,7 +740,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -735,7 +748,7 @@
   <xs:complexType name="ChooseCameraBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="spinnerSelectionID" type="xs:int"></xs:element>
           <xs:element name="spinnerValues">
             <xs:complexType>
@@ -744,7 +757,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -752,7 +765,7 @@
   <xs:complexType name="ChangeSizeByNBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -760,7 +773,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -768,7 +781,7 @@
   <xs:complexType name="ChangeTransparencyByNBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -776,7 +789,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -784,7 +797,7 @@
   <xs:complexType name="SetBrightnessBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -792,7 +805,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -800,7 +813,7 @@
   <xs:complexType name="ChangeBrightnessByNBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -808,7 +821,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -816,7 +829,7 @@
   <xs:complexType name="ClearGraphicEffectBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all/>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -824,7 +837,7 @@
   <xs:complexType name="FlashBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="spinnerSelectionID" type="xs:int"></xs:element>
           <xs:element name="spinnerValues">
             <xs:complexType>
@@ -833,7 +846,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -841,7 +854,7 @@
   <xs:complexType name="AddItemToUserListBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -849,7 +862,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -857,7 +870,7 @@
   <xs:complexType name="DeleteItemOfUserListBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -865,7 +878,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -873,7 +886,7 @@
   <xs:complexType name="InsertItemIntoUserListBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -881,7 +894,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -889,7 +902,7 @@
   <xs:complexType name="ReplaceItemInUserListBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -897,7 +910,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -905,7 +918,7 @@
   <xs:complexType name="SpeakBrick">
     <xs:complexContent>
       <xs:extension base="brick">
-        <xs:all>
+        <xs:sequence>
           <xs:element name="formulaList">
             <xs:complexType>
               <xs:sequence>
@@ -913,7 +926,113 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-        </xs:all>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="IfThenLogicBeginBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:sequence>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="IfThenLogicEndBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:sequence>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="SetPhysicsObjectTypeBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:sequence>
+          <xs:element name="type" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="SetFrictionBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:sequence>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="SetVelocityBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:sequence>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="TurnLeftSpeedBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:sequence>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+    <xs:complexType name="TurnRightSpeedBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:sequence>
+          <xs:element name="formulaList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
