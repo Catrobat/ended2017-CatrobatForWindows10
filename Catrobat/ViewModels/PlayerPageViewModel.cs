@@ -39,7 +39,7 @@ namespace Catrobat.ViewModels
             var p = _catrobatProgramRepo.Get(e.Parameter as string);
             NativeWrapper.SetProject(p.Program);
             _playerObject = new Catrobat_PlayerAdapter();
-            _playerObject.InitPlayer(Page, p.Id);
+            _playerObject.InitPlayer(Page, $"{p.Id}\\{p.Program.scenes[0].name}");
         }
 
         public override void OnNavigatingFrom(NavigatingFromEventArgs e, Dictionary<string, object> viewModelState, bool suspending)

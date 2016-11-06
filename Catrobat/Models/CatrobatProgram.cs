@@ -29,8 +29,8 @@ namespace Catrobat.Models
         {
             get
             {
-                string pathManual = string.Format("{0}\\manual_screenshot.png", _storagePath);
-                string pathAutomatic = string.Format("{0}\\automatic_screenshot.png", _storagePath);
+                string pathManual = string.Format("{0}\\{1}\\manual_screenshot.png", _storagePath, Program.scenes[0].name);
+                string pathAutomatic = string.Format("{0}\\{1}\\automatic_screenshot.png", _storagePath, Program.scenes[0].name);
                 if (File.Exists(pathManual))
                     return new BitmapImage(new Uri(pathManual));
                 else if (File.Exists(pathAutomatic))
