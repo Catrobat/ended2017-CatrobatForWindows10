@@ -439,6 +439,7 @@ namespace Catrobat.Models.v0992 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SceneTransitionBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(StopScriptBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetBackgroundBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TurnRightSpeedBrick))]
@@ -529,6 +530,26 @@ namespace Catrobat.Models.v0992 {
             }
             set {
                 this.referenceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SceneTransitionBrick : brick {
+        
+        private string sceneForTransitionField;
+        
+        /// <remarks/>
+        public string sceneForTransition {
+            get {
+                return this.sceneForTransitionField;
+            }
+            set {
+                this.sceneForTransitionField = value;
             }
         }
     }
