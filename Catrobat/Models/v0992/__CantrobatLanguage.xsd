@@ -199,6 +199,16 @@
     </xs:complexContent>
   </xs:complexType>
 
+  <xs:complexType name="WhenBackgroundChangesScript">
+    <xs:complexContent>
+      <xs:extension base="script">
+        <xs:sequence>
+          <xs:element name="look" type="look" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
   <!-- Brick definition -->
   <xs:complexType name="brick" >
     <xs:sequence>
@@ -1021,7 +1031,7 @@
     </xs:complexContent>
   </xs:complexType>
 
-    <xs:complexType name="TurnRightSpeedBrick">
+  <xs:complexType name="TurnRightSpeedBrick">
     <xs:complexContent>
       <xs:extension base="brick">
         <xs:sequence>
@@ -1029,6 +1039,33 @@
             <xs:complexType>
               <xs:sequence>
                 <xs:element name="formula" type="formula" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="SetBackgroundBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:sequence>
+          <xs:element name="look" type="look" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="StopScriptBrick">
+    <xs:complexContent>
+      <xs:extension base="brick">
+        <xs:sequence>
+          <xs:element name="spinnerSelection" type="xs:int" />
+          <xs:element name="spinnerValue">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element type="xs:string" name="string" maxOccurs="unbounded" minOccurs="0"/>
               </xs:sequence>
             </xs:complexType>
           </xs:element>

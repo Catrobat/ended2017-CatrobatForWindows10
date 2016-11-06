@@ -439,6 +439,8 @@ namespace Catrobat.Models.v0992 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StopScriptBrick))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetBackgroundBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TurnRightSpeedBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TurnLeftSpeedBrick))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SetVelocityBrick))]
@@ -516,6 +518,105 @@ namespace Catrobat.Models.v0992 {
             }
             set {
                 this.commentedOutField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string reference {
+            get {
+                return this.referenceField;
+            }
+            set {
+                this.referenceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class StopScriptBrick : brick {
+        
+        private int spinnerSelectionField;
+        
+        private string[] spinnerValueField;
+        
+        /// <remarks/>
+        public int spinnerSelection {
+            get {
+                return this.spinnerSelectionField;
+            }
+            set {
+                this.spinnerSelectionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public string[] spinnerValue {
+            get {
+                return this.spinnerValueField;
+            }
+            set {
+                this.spinnerValueField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SetBackgroundBrick : brick {
+        
+        private look lookField;
+        
+        /// <remarks/>
+        public look look {
+            get {
+                return this.lookField;
+            }
+            set {
+                this.lookField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class look {
+        
+        private string fileNameField;
+        
+        private string nameField;
+        
+        private string referenceField;
+        
+        /// <remarks/>
+        public string fileName {
+            get {
+                return this.fileNameField;
+            }
+            set {
+                this.fileNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
             }
         }
         
@@ -1759,52 +1860,6 @@ namespace Catrobat.Models.v0992 {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class look {
-        
-        private string fileNameField;
-        
-        private string nameField;
-        
-        private string referenceField;
-        
-        /// <remarks/>
-        public string fileName {
-            get {
-                return this.fileNameField;
-            }
-            set {
-                this.fileNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string reference {
-            get {
-                return this.referenceField;
-            }
-            set {
-                this.referenceField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SetXBrick : brick {
         
         private formula[] formulaListField;
@@ -1842,6 +1897,7 @@ namespace Catrobat.Models.v0992 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WhenBackgroundChangesScript))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(WhenScript))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BroadcastScript))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(StartScript))]
@@ -1873,6 +1929,26 @@ namespace Catrobat.Models.v0992 {
             }
             set {
                 this.commentedOutField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class WhenBackgroundChangesScript : script {
+        
+        private look lookField;
+        
+        /// <remarks/>
+        public look look {
+            get {
+                return this.lookField;
+            }
+            set {
+                this.lookField = value;
             }
         }
     }
